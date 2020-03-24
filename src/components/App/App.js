@@ -4,12 +4,29 @@ import Header from '../Header/Header';
 import LoginForm from '../LoginForm/LoginForm';
 
 class App extends Component {
- render() {
+  constructor() {
+    super();
+    this.state = {
+      username: '',
+      email: '',
+      purpose: ''
+    }
+  }
+
+  handleLoginSubmit = ({ username, email, purpose }) => {
+    this.setState({
+      username,
+      email,
+      purpose  
+    })
+  }
+
+  render() {
   return (
     <div className="App">
       <Header />
       <main>
-        <LoginForm />
+        <LoginForm handleLoginSubmit={this.handleLoginSubmit}/>
       </main>
     </div>
   )

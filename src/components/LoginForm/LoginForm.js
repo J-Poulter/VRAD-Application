@@ -41,6 +41,7 @@ class LoginForm extends Component {
           id="username"
           name="username"
           onChange={this.handleInput}
+          required
           type="text" 
           value={username}
         />
@@ -50,7 +51,8 @@ class LoginForm extends Component {
           id="email"
           name="email"
           onChange={this.handleInput}
-          type="text" 
+          required
+          type="email"
           value={email}
         />
         </label> 
@@ -59,6 +61,8 @@ class LoginForm extends Component {
           id="purpose"
           name="purpose"
           onChange={this.handleInput}
+          placeholder="Vacation..."
+          required
           type="text" 
           value={purpose}
         />
