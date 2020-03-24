@@ -15,6 +15,8 @@ class App extends Component {
       username: '',
       email: '',
       purpose: '',
+      error: null,
+      isLoading: true,
       areaDetails: []
     }
   }
@@ -23,10 +25,15 @@ class App extends Component {
     try {
       const areas = await getAreas();
       const areaDetails = await getAreaDetails(areas);
-      console.log(areaDetails);
-      console.log(this.state);
-
+      this.setState({
+        areaDetails,
+        isLoading: false
+      })
     } catch (error) {
+      this.setState({
+        error,
+        isLoading: false
+      })
       console.error(error.message);
     }
   }
