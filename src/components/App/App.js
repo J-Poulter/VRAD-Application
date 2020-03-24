@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
+
+// api ------------------------------
+import { getAreas, getAreaDetails } from '../../apiCalls/apiCalls';
+
+// components ------------------------------
 import Header from '../Header/Header';
 import LoginForm from '../LoginForm/LoginForm';
 
@@ -12,6 +17,9 @@ class App extends Component {
       purpose: ''
     }
   }
+
+
+
 
   handleLoginSubmit = ({ username, email, purpose }) => {
     this.setState({
