@@ -57,15 +57,18 @@ class LoginForm extends Component {
         />
         </label> 
         <label htmlFor="purpose">Purpose:       
-          <input 
+          <select
           id="purpose"
           name="purpose"
           onChange={this.handleInput}
-          placeholder="Vacation..."
           required
-          type="text" 
-          value={purpose}
-        />
+          value={purpose} 
+        >
+          <option value="vacation">Vacation</option>
+          <option value="business">Business</option>
+          <option value="other">Other</option>
+        </select>
+
         </label> 
         <button type="submit">Log In</button>
       </form>
