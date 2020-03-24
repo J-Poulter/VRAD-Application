@@ -1,8 +1,26 @@
-body {
+/* base styles ------------------------------ */
+:root {
+  --border-radius: 0.36rem;
+  --box-shadow-b: 0 0 26px rgba(5, 56, 107, 0.16);
+  --c-beige: #eef3db;
+  --c-blue: #b5d9d5;
+  --c-lteal: #799e9e;
+  --c-offwhite: #fcfcfc;
+  --c-red: #fe615a;
+  --c-teal: #506467;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+}
+
+body {
+  background: var(--c-beige);
+  height: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +28,19 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.button {
+  background: var(--c-blue);
+  border: 1px solid transparent;
+  border-radius: var(--border-radius);
+  box-shadow: car(--box-shadow-b);
+  color: var(--c-teal);
+  font-size: 1rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.button:hover {
+  border: 1px solid var(--c-teal);
+  cursor: pointer;
 }
