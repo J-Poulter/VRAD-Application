@@ -10,6 +10,12 @@ const Header = () => {
 
     <nav className="nav">
       <button
+        className="button favorite-button"
+        type="button"
+      >
+        Favorites({4})
+      </button>
+      <button
         className="button logout-button"
         type="button"
       >

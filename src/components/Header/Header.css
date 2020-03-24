@@ -10,5 +10,7 @@
   width: 7rem;
 }
 
+.favorite-button,
 .logout-button {
+  min-width: 120px;
 }
