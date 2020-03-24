@@ -1,0 +1,21 @@
+.form-login {
+  background: var(--c-offwhite);
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 200px;
+  min-height: 300px;
+  padding: 1rem;
+}
+
+.form-login input,
+.form-login select {
+  border: 1px solid (--c-beige);
+  border-radius: var(--border-radius);
+  display: block;
+  margin-top: 0.4rem;
+  padding: 0.6rem;
+  width: 100%;
+}

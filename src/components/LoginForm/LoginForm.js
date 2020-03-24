@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './LoginForm.css'
 
 class LoginForm extends Component {
   constructor(props) {
@@ -35,7 +36,10 @@ class LoginForm extends Component {
     const { username, email, purpose } = this.state;
 
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form
+        className="form-login"
+        onSubmit={this.handleSubmit}
+      >
         <label htmlFor="username">Username:
           <input
           id="username"
@@ -64,6 +68,7 @@ class LoginForm extends Component {
           required
           value={purpose}
         >
+            <option value="" selected disabled hidden>Select</option>
           <option value="vacation">Vacation</option>
           <option value="business">Business</option>
           <option value="other">Other</option>

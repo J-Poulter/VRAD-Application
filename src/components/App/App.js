@@ -17,7 +17,7 @@ class App extends Component {
     this.setState({
       username,
       email,
-      purpose  
+      purpose
     })
   }
 
@@ -25,13 +25,13 @@ class App extends Component {
   return (
     <div className="App">
       <Header />
-      <main>
+      <main className="main">
         <LoginForm handleLoginSubmit={this.handleLoginSubmit}/>
       </main>
     </div>
   )
  }
-  
+
 }
 
 export default App

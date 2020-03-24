@@ -1,0 +1,16 @@
+.header {
+  align-items: center;
+  background: var(--c-offwhite);
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  width: 7rem;
+}
+
+.favorite-button,
+.logout-button {
+  min-width: 120px;
+}
