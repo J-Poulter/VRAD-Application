@@ -9,7 +9,7 @@ class LoginForm extends Component {
       purpose: ''
     }
   }
-  
+
   handleInput = (e) => {
     this.setState({
       [e.target.name]: e.target.value
@@ -36,18 +36,18 @@ class LoginForm extends Component {
 
     return (
       <form onSubmit={this.handleSubmit}>
-        <label htmlFor="username">Username:       
-          <input 
+        <label htmlFor="username">Username:
+          <input
           id="username"
           name="username"
           onChange={this.handleInput}
           required
-          type="text" 
+          type="text"
           value={username}
         />
-        </label> 
-        <label htmlFor="email">Email:       
-          <input 
+        </label>
+        <label htmlFor="email">Email:
+          <input
           id="email"
           name="email"
           onChange={this.handleInput}
@@ -55,21 +55,20 @@ class LoginForm extends Component {
           type="email"
           value={email}
         />
-        </label> 
-        <label htmlFor="purpose">Purpose:       
+        </label>
+        <label htmlFor="purpose">Purpose:
           <select
           id="purpose"
           name="purpose"
           onChange={this.handleInput}
           required
-          value={purpose} 
+          value={purpose}
         >
           <option value="vacation">Vacation</option>
           <option value="business">Business</option>
           <option value="other">Other</option>
         </select>
-
-        </label> 
+        </label>
         <button type="submit">Log In</button>
       </form>
     )
