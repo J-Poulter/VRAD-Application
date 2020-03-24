@@ -16,11 +16,26 @@ class LoginForm extends Component {
     })
   }
 
+    handleSubmit = (e) => {
+      e.preventDefault();
+      const { username, email, purpose } = this.state;
+      this.props.handleLoginSubmit({
+        username,
+        email,
+        purpose
+      });
+      this.setState({
+        username: '',
+        email: '',
+        purpose: ''
+      })
+    }
+
   render() {
     const { username, email, purpose } = this.state;
 
     return (
-      <form onSubmit={this.props.handleLoginSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <label htmlFor="username">Username:       
           <input 
           id="username"
