@@ -14,11 +14,22 @@ class App extends Component {
     this.state = {
       username: '',
       email: '',
-      purpose: ''
+      purpose: '',
+      areaDetails: []
     }
   }
 
+  async componentDidMount() {
+    try {
+      const areas = await getAreas();
+      const areaDetails = await getAreaDetails(areas);
+      console.log(areaDetails);
+      console.log(this.state);
 
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
 
 
   handleLoginSubmit = ({ username, email, purpose }) => {

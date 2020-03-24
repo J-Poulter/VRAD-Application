@@ -6,7 +6,7 @@ export const getAreas = () => {
 }
 
 export const getAreaDetails = (areas) => {
-  const promises = areas.map(area => {
+  const promises = areas.areas.map(area => {
     const { area: shortname, details } = area;
     return fetch(`${BASE}${details}`)
       .then(response => response.json())
