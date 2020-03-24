@@ -10,6 +10,12 @@ class LoginForm extends Component {
     }
   }
   
+  handleInput = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
   render() {
     const { username, email, purpose } = this.state;
 
@@ -18,6 +24,7 @@ class LoginForm extends Component {
         <label htmlFor="username">Username:       
           <input 
           id="username"
+          name="username"
           onChange={this.handleInput}
           type="text" 
           value={username}
@@ -26,6 +33,7 @@ class LoginForm extends Component {
         <label htmlFor="email">Email:       
           <input 
           id="email"
+          name="email"
           onChange={this.handleInput}
           type="text" 
           value={email}
@@ -34,6 +42,7 @@ class LoginForm extends Component {
         <label htmlFor="purpose">Purpose:       
           <input 
           id="purpose"
+          name="purpose"
           onChange={this.handleInput}
           type="text" 
           value={purpose}
