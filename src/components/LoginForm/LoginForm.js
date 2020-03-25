@@ -52,9 +52,9 @@ class LoginForm extends Component {
           >
             <h1>Sign in</h1>
             <article className="social-container">
-              <a href="#" className="social"><i className="fab fa-facebook-f"></i></a>
-              <a href="#" className="social"><i className="fab fa-google-plus-g"></i></a>
-              <a href="#" className="social"><i className="fab fa-linkedin-in"></i></a>
+              <a href="/" className="social"><i className="fab fa-facebook-f"></i></a>
+              <a href="/" className="social"><i className="fab fa-google-plus-g"></i></a>
+              <a href="/" className="social"><i className="fab fa-linkedin-in"></i></a>
             </article>
             <label htmlFor="username">Username:
               <input
@@ -84,7 +84,6 @@ class LoginForm extends Component {
                 required
                 value={purpose}
               >
-                <option value="" selected disabled hidden>Select</option>
                 <option value="vacation">Vacation</option>
                 <option value="business">Business</option>
                 <option value="other">Other</option>
