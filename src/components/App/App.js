@@ -7,6 +7,7 @@ import { getAreas, getAreaDetails } from '../../apiCalls/apiCalls';
 // components ------------------------------
 import Header from '../Header/Header';
 import LoginForm from '../LoginForm/LoginForm';
+import AreaCardContainer from '../AreaCardContainer/AreaCardContainer';
 
 class App extends Component {
   constructor() {
@@ -53,6 +54,7 @@ class App extends Component {
       <Header />
       <main className="main">
         <LoginForm handleLoginSubmit={this.handleLoginSubmit}/>
+        <AreaCardContainer areaDetails={this.state.areaDetails}/>
       </main>
     </div>
   )
