@@ -150,19 +150,11 @@ describe('getAreaDetails', () => {
 })
 
 describe('getListings', () => {
-  const mockArea = {
-    "shortname": "RiNo",
-    "id": 590,
-    "name": "River North",
-    "location": "North of Downtown Denver",
-    "about": "RiNo is a burgeoning area with new bars, restaurants and event spaces popping up all the time. Explore this thriving area of Denver today!",
-    "region_code": 6356834,
-    "quick_search": "o5kod9f5cqo0",
-    "listings": [
+  const mockAreaListings = [
       "/api/v1/listings/3",
       "/api/v1/listings/44",
     ]
-  }
+
 
   const mockListingsResponse = [
     {
@@ -228,28 +220,28 @@ describe('getListings', () => {
   afterEach(cleanup);
 
   it('should call fetch with the correct url for each area', () => {
-    getListings(mockArea);
+    getListings(mockAreaListings);
     expect(window.fetch).toHaveBeenCalledTimes(2);
     expect(window.fetch).toHaveBeenCalledWith(`${BASE}/api/v1/listings/3`);
     expect(window.fetch).toHaveBeenCalledWith(`${BASE}/api/v1/listings/44`);
   })
 
-  it('should return an array of areaDetails', () => {
+  it('should return an array of listings', () => {
     window.fetch = jest.fn()
       .mockImplementationOnce(() => {
         return Promise.resolve({
           ok: true,
-          json: () => Promise.resolve(mockAreaDetailResponse[0])
+          json: () => Promise.resolve(mockListingsResponse[0])
         })
       })
       .mockImplementationOnce(() => {
         return Promise.resolve({
           ok: true,
-          json: () => Promise.resolve(mockAreaDetailResponse[1])
+          json: () => Promise.resolve(mockListingsResponse[1])
         })
       })
 
-    // expect(getAreaDetails(mockAreaResponse)).resolves.toMatchObject(mockAreaDetailResponse);
+    expect(getListings(mockAreaListings)).resolves.toMatchObject(mockListingsResponse);
   })
 
   it('should throw an error when status is not 200', () => {
@@ -260,7 +252,7 @@ describe('getListings', () => {
         })
       })
 
-    // expect(getAreaDetails(mockAreaResponse)).rejects.toEqual(Error());
+    expect(getListings(mockAreaListings)).rejects.toEqual(Error());
   })
 
   it('should reject when failing to fetch', () => {
@@ -269,6 +261,6 @@ describe('getListings', () => {
         return Promise.reject(Error('Failed to fetch'))
       });
 
-    // expect(getAreaDetails(mockAreaResponse)).rejects.toEqual(Error('Failed to fetch'));
+    expect(getListings(mockAreaListings)).rejects.toEqual(Error('Failed to fetch'));
   })
 })
