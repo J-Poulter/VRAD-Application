@@ -7,6 +7,7 @@ describe('Header', () => {
   afterEach(cleanup)
 
   it('should render the correct content', () => {
-
+      const { debug, getByAltText } = render(<Header />);
+      expect(getByAltText('VRAD travel logo').tagName).toBe('IMG');
   })
 })

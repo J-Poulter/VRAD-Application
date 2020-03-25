@@ -1,9 +1,14 @@
 .header {
   align-items: center;
-  background: var(--c-offwhite);
+  background: var(--c-white);
   display: flex;
   justify-content: space-between;
   padding: 1rem 2rem;
+}
+
+.header-title {
+  color: var(--c-pink);
+  padding-left: 1rem;
 }
 
 .logo {
@@ -13,4 +18,10 @@
 .favorite-button,
 .logout-button {
   min-width: 120px;
+}
+
+.header-container {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
 }

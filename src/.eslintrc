@@ -12,6 +12,7 @@
         "extensions": [".js", ".jsx"]
       }
     ],
-    "react/forbid-prop-types": "disabled"
+    "react/forbid-prop-types": "disabled",
+    "semi": ["error", "never"]
   }
 }
