@@ -2,9 +2,13 @@ import React from 'react';
 import './AreaCardContainer.css';
 import AreaCard from '../AreaCard/AreaCard';
 
-const AreaCardContainer = ({areaDetails}) => {
+const AreaCardContainer = ({areaDetails, handleViewListingsClick}) => {
   const areas = areaDetails.map(area => (
-    <AreaCard area={area} key={area.id}/>
+    <AreaCard
+      area={area}
+      key={area.id}
+      handleViewListingsClick={handleViewListingsClick}
+    />
   ))
 
   return (

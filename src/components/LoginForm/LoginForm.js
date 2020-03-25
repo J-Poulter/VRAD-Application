@@ -8,7 +8,6 @@ import { faFacebookF, faGooglePlusG, faLinkedinIn } from "@fortawesome/free-bran
 library.add(faFacebookF, faGooglePlusG, faLinkedinIn);
 dom.watch();
 
-
 class LoginForm extends Component {
   constructor(props) {
     super(props);

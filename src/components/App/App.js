@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 // api ------------------------------
-import { getAreas, getAreaDetails } from '../../apiCalls/apiCalls';
+import { getAreas, getAreaDetails, getListings } from '../../apiCalls/apiCalls';
 
 // components ------------------------------
 import Header from '../Header/Header';
@@ -14,13 +14,14 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      username: '',
+      areaDetails: [],
       email: '',
-      purpose: '',
-      favorites: [],
       error: null,
+      favorites: [],
       isLoading: true,
-      areaDetails: []
+      listings: [],
+      purpose: '',
+      username: '',
     }
   }
 
@@ -41,6 +42,25 @@ class App extends Component {
     }
   }
 
+  handleViewListingsClick = async (id) => {
+    const areaListings = [...this.state.areaDetails]
+      .filter(area => area.id === id)
+      .pop()
+      .listings;
+
+    try {
+      const listings = await getListings(areaListings);
+      this.setState({
+        listings
+      })
+    } catch (error) {
+      this.setState({
+        error
+      })
+      console.error(error.message);
+    }
+  }
+
 
   handleLoginSubmit = ({ username, email, purpose }) => {
     this.setState({
@@ -52,6 +72,7 @@ class App extends Component {
 
   render() {
     const { email, purpose, username, areaDetails } = this.state;
+
     return (
       <div className="App">
         <Header />
@@ -59,7 +80,10 @@ class App extends Component {
           <UserProfile email={email} purpose={purpose} username={username} />
           <section className="main-content">
             <LoginForm handleLoginSubmit={this.handleLoginSubmit} />
-            <AreaCardContainer areaDetails={areaDetails} />
+            <AreaCardContainer
+              areaDetails={areaDetails}
+              handleViewListingsClick={this.handleViewListingsClick}
+            />
           </section>
         </main>
       </div>
