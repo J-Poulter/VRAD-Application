@@ -2,9 +2,9 @@ import React from 'react';
 import './AreaCardContainer.css';
 import AreaCard from '../AreaCard/AreaCard';
 
-const AreaCardContainer = (props) => {
-  const areas = props.areaDetails.map(area => (
-    <AreaCard area={area}/>
+const AreaCardContainer = ({areaDetails}) => {
+  const areas = areaDetails.map(area => (
+    <AreaCard area={area} key={area.id}/>
   ))
 
   return (
