@@ -31,3 +31,18 @@ export const getAreaDetails = (areas) => {
 
   return Promise.all(promises);
 }
+
+export const getListings = (area) => {
+  const promises = area.listings.map(listingPath => {
+    return fetch(`${BASE}${listingPath}`)
+      .then(response => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response.json();
+      })
+      .then(listingData => listingData)
+  })
+
+  return Promise.all(promises);
+}

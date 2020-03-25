@@ -13,13 +13,14 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      username: '',
+      areaDetails: [],
       email: '',
-      purpose: '',
-      favorites: [],
       error: null,
+      favorites: [],
       isLoading: true,
-      areaDetails: []
+      listings: [],
+      purpose: '',
+      username: '',
     }
   }
 
@@ -38,6 +39,20 @@ class App extends Component {
       })
       console.error(error.message);
     }
+  }
+
+  handleViewListingsClick = async () => {
+    // try {
+    //   const listings = await getListings(area);
+    //   this.setState({
+    //     listings
+    //   })
+    // } catch (error) {
+    //   this.setState({
+    //     error
+    //   })
+    //   console.error(error.message);
+    // }
   }
 
 
