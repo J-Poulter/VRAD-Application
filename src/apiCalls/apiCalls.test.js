@@ -25,12 +25,33 @@ describe('getAreas', () => {
     })
   })
 
+  afterEach(cleanup);
+
   it('should call fetch with the correct url', () => {
     getAreas();
     expect(window.fetch).toHaveBeenCalledWith('http://localhost:3001/api/v1/areas')
   })
 
+  it('should return an array of areas', () => {
+    expect(getAreas()).resolves.toEqual(mockResponse);
+  })
 
+  it('should throw an error when status is not 200', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: false,
+      })
+    })
 
+    expect(getAreas()).rejects.toEqual(Error())
+  })
+
+  it('should reject when failing to fetch', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.reject(Error('Failed to fetch'))
+    })
+
+    expect(getAreas()).rejects.toEqual(Error('Failed to fetch'))
+  })
 
 })
