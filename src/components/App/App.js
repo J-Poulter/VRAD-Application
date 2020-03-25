@@ -7,6 +7,7 @@ import { getAreas, getAreaDetails } from '../../apiCalls/apiCalls';
 // components ------------------------------
 import Header from '../Header/Header';
 import LoginForm from '../LoginForm/LoginForm';
+import AreaCardContainer from '../AreaCardContainer/AreaCardContainer';
 import UserProfile from '../UserProfile/UserProfile';
 
 class App extends Component {
@@ -50,15 +51,15 @@ class App extends Component {
   }
 
   render() {
-    const { email, purpose, username } = this.state;
-
+    const { email, purpose, username, areaDetails } = this.state;
     return (
       <div className="App">
         <Header />
         <main className="main">
           <UserProfile email={email} purpose={purpose} username={username} />
           <section className="main-content">
-          <LoginForm handleLoginSubmit={this.handleLoginSubmit}/>
+            <LoginForm handleLoginSubmit={this.handleLoginSubmit} />
+            <AreaCardContainer areaDetails={areaDetails} />
           </section>
         </main>
       </div>
