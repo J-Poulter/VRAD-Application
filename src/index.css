@@ -21,28 +21,30 @@
 }
 
 body {
-  background: var(--c-brightwhite);
+  background: var(--c-white-med);
   height: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+button {
+  border-radius: 20px;
+  border: 1px solid var(--c-orange);
+  background-color: var(--c-orange);
+  color: var(--c-white);
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
 }
 
-.button {
-  background: var(--c-blue);
-  border: 1px solid transparent;
-  border-radius: var(--border-radius);
-  box-shadow: car(--box-shadow-b);
-  color: var(--c-teal);
-  font-size: 1rem;
-  padding: 0.5rem 1rem 0.5rem 1rem;
-}
-
-.button:hover {
-  border: 1px solid var(--c-teal);
+button:hover {
   cursor: pointer;
+  transform: scale(0.95);
+}
+
+button:focus {
+  outline: none;
 }

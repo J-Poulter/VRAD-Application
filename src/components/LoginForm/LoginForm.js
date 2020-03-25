@@ -92,12 +92,11 @@ class LoginForm extends Component {
             <button type="submit">Log In</button>
           </form>
         </div>
-
         <section className="overlay-container">
           <div className="overlay">
             <div className="overlay-panel overlay-right">
               <h1>Hello, Friend!</h1>
-              <p>Log in to begin your journey</p>
+              <p>Log in to begin your journey in Denver</p>
             </div>
           </div>
         </section>

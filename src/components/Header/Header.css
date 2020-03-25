@@ -1,13 +1,13 @@
 .header {
   align-items: center;
-  background: var(--c-offwhite);
+  background: var(--c-white);
   display: flex;
   justify-content: space-between;
   padding: 1rem 2rem;
 }
 
 .header-title {
-  color: var(--c-teal);
+  color: var(--c-pink);
   padding-left: 1rem;
 }
 
