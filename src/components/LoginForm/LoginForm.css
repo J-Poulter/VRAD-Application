@@ -1,21 +1,135 @@
-.form-login {
-  background: var(--c-offwhite);
-  border-radius: var(--border-radius);
+p {
+  font-size: 14px;
+  font-weight: 100;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  margin: 20px 0 30px;
+}
+
+form {
+  align-items: center;
+  background-color: var(--c-white);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  margin: 0 auto;
-  max-width: 200px;
-  min-height: 300px;
-  padding: 1rem;
+  height: 100%;
+  justify-content: center;
+  padding: 0 50px;
+  text-align: center;
+}
+
+.form-login label {
+  display: block;
+  text-align: left;
+  margin-bottom: 0.4rem;
+}
+
+.form-login button {
+  margin-top: 1.4rem;
 }
 
 .form-login input,
 .form-login select {
-  border: 1px solid (--c-beige);
-  border-radius: var(--border-radius);
+  background-color: var(--c-gray-light);
+  border: none;
   display: block;
-  margin-top: 0.4rem;
-  padding: 0.6rem;
-  width: 100%;
+  height: 2.4rem;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 224px;
+}
+
+.form-login select {
+  -webkit-border-radius: 0;
+  border: 0;
+  outline: 1px solid var(--c-gray-light);
+  outline-offset: -1px;
+}
+
+.container {
+  background-color: var(--c-white);
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  max-width: 100%;
+  min-height: 480px;
+  overflow: hidden;
+  position: relative;
+  width: 768px;
+}
+
+.form-container {
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.sign-in-container {
+  left: 0;
+  width: 50%;
+  z-index: 2;
+}
+
+.container.right-panel-active .sign-in-container {
+  transform: translateX(100%);
+}
+
+.overlay-container {
+  height: 100%;
+  left: 50%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  transition: transform 0.6s ease-in-out;
+  width: 50%;
+  z-index: 100;
+}
+
+.overlay {
+  background: var(--c-magenta);
+  background: -webkit-linear-gradient(
+    to right,
+    var(--c-orange),
+    var(--c-magenta)
+  );
+  background: linear-gradient(to right, var(--c-orange), var(--c-magenta));
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 0;
+  color: var(--c-white);
+  height: 100%;
+  left: -100%;
+  position: relative;
+  width: 200%;
+}
+
+.overlay-panel {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  padding: 0 40px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 50%;
+}
+
+.overlay-right {
+  right: 0;
+  transform: translateX(0);
+}
+
+.social-container {
+  margin: 1.6rem 0;
+}
+
+.social-container a {
+  align-items: center;
+  border: 1px solid var(--c-gray-med);
+  border-radius: 50%;
+  display: inline-flex;
+  height: 40px;
+  justify-content: center;
+  margin: 0 5px;
+  width: 40px;
 }
