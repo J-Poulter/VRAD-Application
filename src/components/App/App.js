@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 // api ------------------------------
-import { getAreas, getAreaDetails } from '../../apiCalls/apiCalls';
+import { getAreas, getAreaDetails, getListings } from '../../apiCalls/apiCalls';
 
 // components ------------------------------
 import Header from '../Header/Header';
@@ -41,18 +41,18 @@ class App extends Component {
     }
   }
 
-  handleViewListingsClick = async () => {
-    // try {
-    //   const listings = await getListings(area);
-    //   this.setState({
-    //     listings
-    //   })
-    // } catch (error) {
-    //   this.setState({
-    //     error
-    //   })
-    //   console.error(error.message);
-    // }
+  handleViewListingsClick = async (area) => {
+    try {
+      const listings = await getListings(area);
+      this.setState({
+        listings
+      })
+    } catch (error) {
+      this.setState({
+        error
+      })
+      console.error(error.message);
+    }
   }
 
 
