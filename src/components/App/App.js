@@ -15,6 +15,7 @@ class App extends Component {
       username: '',
       email: '',
       purpose: '',
+      favorites: [],
       error: null,
       isLoading: true,
       areaDetails: []
