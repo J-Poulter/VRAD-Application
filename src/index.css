@@ -44,3 +44,9 @@ code {
   border: 1px solid var(--c-teal);
   cursor: pointer;
 }
+
+.container {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}

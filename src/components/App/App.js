@@ -7,6 +7,7 @@ import { getAreas, getAreaDetails } from '../../apiCalls/apiCalls';
 // components ------------------------------
 import Header from '../Header/Header';
 import LoginForm from '../LoginForm/LoginForm';
+import UserProfile from '../UserProfile/UserProfile';
 
 class App extends Component {
   constructor() {
@@ -49,16 +50,18 @@ class App extends Component {
   }
 
   render() {
-  return (
-    <div className="App">
-      <Header />
-      <main className="main">
-        <LoginForm handleLoginSubmit={this.handleLoginSubmit}/>
-      </main>
-    </div>
-  )
- }
+    const { email, purpose, username } = this.state;
 
+    return (
+      <div className="App">
+        <Header />
+        <main className="main">
+          <UserProfile email={email} purpose={purpose} username={username} />
+          <LoginForm handleLoginSubmit={this.handleLoginSubmit}/>
+        </main>
+      </div>
+    )
+  }
 }
 
-export default App
+export default App;

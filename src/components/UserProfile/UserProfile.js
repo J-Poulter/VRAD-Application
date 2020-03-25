@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const UserProfile = ({ email, purpose, username }) => {
-  render (
+  return (
     <section className="userprofile">
       <p>{username}</p>
       <p>{email}</p>

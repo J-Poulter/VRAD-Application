@@ -7,7 +7,10 @@ import logo from './logo.png'
 const Header = () => {
   return(
     <header className="header">
-      <img className="logo" src={logo} alt="VRAD travel logo"/>
+      <div className="container">
+        <img className="logo" src={logo} alt="VRAD travel logo"/>
+        <h1 className="header-title">VRAD</h1>
+      </div>
       <nav className="nav">
         <button
           className="button favorite-button"
