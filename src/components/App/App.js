@@ -43,8 +43,9 @@ class App extends Component {
   }
 
   handleViewListingsClick = async (id) => {
-    const areaListings = this.state.areaDetails
+    const areaListings = [...this.state.areaDetails]
       .filter(area => area.id === id)
+      .pop()
       .listings;
 
     try {
