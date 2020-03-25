@@ -51,7 +51,7 @@ class App extends Component {
   }
 
   render() {
-    const { email, purpose, username } = this.state;
+    const { email, purpose, username, areaDetails } = this.state;
     return (
       <div className="App">
         <Header />
@@ -59,7 +59,7 @@ class App extends Component {
           <UserProfile email={email} purpose={purpose} username={username} />
           <section className="main-content">
             <LoginForm handleLoginSubmit={this.handleLoginSubmit} />
-            <AreaCardContainer areaDetails={this.state.areaDetails} />
+            <AreaCardContainer areaDetails={areaDetails} />
           </section>
         </main>
       </div>
