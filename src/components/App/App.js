@@ -7,6 +7,7 @@ import { getAreas, getAreaDetails, getListings } from '../../apiCalls/apiCalls';
 // components ------------------------------
 import Header from '../Header/Header';
 import LoginForm from '../LoginForm/LoginForm';
+import AreaCardContainer from '../AreaCardContainer/AreaCardContainer';
 import UserProfile from '../UserProfile/UserProfile';
 
 class App extends Component {
@@ -41,9 +42,13 @@ class App extends Component {
     }
   }
 
-  handleViewListingsClick = async (area) => {
+  handleViewListingsClick = async (id) => {
+    const areaListings = this.state.areaDetails
+      .filter(area => area.id === id)
+      .listings;
+
     try {
-      const listings = await getListings(area);
+      const listings = await getListings(areaListings);
       this.setState({
         listings
       })
@@ -65,7 +70,7 @@ class App extends Component {
   }
 
   render() {
-    const { email, purpose, username } = this.state;
+    const { email, purpose, username, areaDetails } = this.state;
 
     return (
       <div className="App">
@@ -73,7 +78,11 @@ class App extends Component {
         <main className="main">
           <UserProfile email={email} purpose={purpose} username={username} />
           <section className="main-content">
-          <LoginForm handleLoginSubmit={this.handleLoginSubmit}/>
+            <LoginForm handleLoginSubmit={this.handleLoginSubmit} />
+            <AreaCardContainer
+              areaDetails={areaDetails}
+              handleViewListingsClick={this.handleViewListingsClick}
+            />
           </section>
         </main>
       </div>

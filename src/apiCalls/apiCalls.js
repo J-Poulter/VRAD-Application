@@ -32,8 +32,8 @@ export const getAreaDetails = (areas) => {
   return Promise.all(promises);
 }
 
-export const getListings = (area) => {
-  const promises = area.listings.map(listingPath => {
+export const getListings = (areaListings) => {
+  const promises = areaListings.map(listingPath => {
     return fetch(`${BASE}${listingPath}`)
       .then(response => {
         if (!response.ok) {
