@@ -128,9 +128,22 @@ describe('getAreaDetails', () => {
   })
 
   it('should throw an error when status is not 200', () => {
+    window.fetch = jest.fn()
+      .mockImplementation(() => {
+        return Promise.resolve({
+          ok: false
+        })
+      })
+
+      expect(getAreaDetails(mockAreaResponse)).rejects.toEqual(Error());
   })
 
   it('should reject when failing to fetch', () => {
+    window.fetch = jest.fn()
+      .mockImplementation(() => {
+        return Promise.reject(Error('Failed to fetch'))
+      });
 
+      expect(getAreaDetails(mockAreaResponse)).rejects.toEqual(Error('Failed to fetch'));
   })
 })
