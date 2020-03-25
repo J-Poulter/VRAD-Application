@@ -2,6 +2,13 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import './LoginForm.css'
 
+// icons ------------------------------
+import { library, dom } from "@fortawesome/fontawesome-svg-core";
+import { faFacebookF, faGooglePlusG, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
+library.add(faFacebookF, faGooglePlusG, faLinkedinIn);
+dom.watch();
+
+
 class LoginForm extends Component {
   constructor(props) {
     super(props);
@@ -37,46 +44,65 @@ class LoginForm extends Component {
     const { username, email, purpose } = this.state;
 
     return (
-      <form
-        className="form-login"
-        onSubmit={this.handleSubmit}
-      >
-        <label htmlFor="username">Username:
-          <input
-          id="username"
-          name="username"
-          onChange={this.handleInput}
-          required
-          type="text"
-          value={username}
-        />
-        </label>
-        <label htmlFor="email">Email:
-          <input
-          id="email"
-          name="email"
-          onChange={this.handleInput}
-          required
-          type="email"
-          value={email}
-        />
-        </label>
-        <label htmlFor="purpose">Purpose:
-          <select
-          id="purpose"
-          name="purpose"
-          onChange={this.handleInput}
-          required
-          value={purpose}
-        >
-            <option value="" selected disabled hidden>Select</option>
-          <option value="vacation">Vacation</option>
-          <option value="business">Business</option>
-          <option value="other">Other</option>
-        </select>
-        </label>
-        <button type="submit">Log In</button>
-      </form>
+      <div className="container">
+        <div className="form-container sign-in-container">
+          <form
+            className="form-login"
+            onSubmit={this.handleSubmit}
+          >
+            <h1>Sign in</h1>
+            <article className="social-container">
+              <a href="#" className="social"><i className="fab fa-facebook-f"></i></a>
+              <a href="#" className="social"><i className="fab fa-google-plus-g"></i></a>
+              <a href="#" className="social"><i className="fab fa-linkedin-in"></i></a>
+            </article>
+            <label htmlFor="username">Username:
+              <input
+                id="username"
+                name="username"
+                onChange={this.handleInput}
+                required
+                type="text"
+                value={username}
+              />
+            </label>
+            <label htmlFor="email">Email:
+              <input
+                id="email"
+                name="email"
+                onChange={this.handleInput}
+                required
+                type="email"
+                value={email}
+              />
+            </label>
+            <label htmlFor="purpose">Purpose:
+              <select
+                id="purpose"
+                name="purpose"
+                onChange={this.handleInput}
+                required
+                value={purpose}
+              >
+                <option value="" selected disabled hidden>Select</option>
+                <option value="vacation">Vacation</option>
+                <option value="business">Business</option>
+                <option value="other">Other</option>
+              </select>
+            </label>
+            <button type="submit">Log In</button>
+          </form>
+        </div>
+
+        <section className="overlay-container">
+          <div className="overlay">
+            <div className="overlay-panel overlay-right">
+              <h1>Hello, Friend!</h1>
+              <p>Log in to begin your journey</p>
+            </div>
+          </div>
+        </section>
+      </div>
     )
   }
 }

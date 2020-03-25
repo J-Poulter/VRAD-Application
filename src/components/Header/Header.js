@@ -7,7 +7,7 @@ import logo from './logo.png'
 const Header = () => {
   return(
     <header className="header">
-      <div className="container">
+      <div className="header-container">
         <img className="logo" src={logo} alt="VRAD travel logo"/>
         <h1 className="header-title">VRAD</h1>
       </div>

@@ -57,7 +57,9 @@ class App extends Component {
         <Header />
         <main className="main">
           <UserProfile email={email} purpose={purpose} username={username} />
+          <section className="main-content">
           <LoginForm handleLoginSubmit={this.handleLoginSubmit}/>
+          </section>
         </main>
       </div>
     )
