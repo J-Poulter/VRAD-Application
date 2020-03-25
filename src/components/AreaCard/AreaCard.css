@@ -1,0 +1,25 @@
+.areaCard {
+  border: solid 1px black;
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  padding: 1rem;
+  position: relative;
+  width: 100%;
+}
+
+.areaCardShortName {
+    margin: 1rem 0rem;
+    text-decoration: underline;
+}
+
+.areaCardName {
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.areaButton {
+  /* align-self: flex-end; */
+  position: absolute;
+  bottom: 10px;
+}
