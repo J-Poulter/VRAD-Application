@@ -8,7 +8,7 @@ const AreaCardContainer = (props) => {
   ))
 
   return (
-    <section className="areaCardsContainer">
+    <section className="area-cards-container">
       {areas}
     </section>
   )
