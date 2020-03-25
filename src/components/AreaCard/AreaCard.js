@@ -7,12 +7,12 @@ const AreaCard = (props) => {
 
 
   return (
-    <article className="areaCard">
-      <h2 className="areaCardShortName">{shortname}</h2>
-      <h3 className="areaCardName">({name})</h3>
-      <p className="areaCardDescription">{about}</p>
+    <article className="area-card">
+      <h2 className="area-card-short-name">{shortname}</h2>
+      <h3 className="area-card-name">({name})</h3>
+      <p className="area-card-description">{about}</p>
       <button 
-        className="button areaButton"
+        className="button area-button"
         id={id}
         // onClick={this.viewListing}
         type="button"
