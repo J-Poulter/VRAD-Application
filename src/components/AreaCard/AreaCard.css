@@ -1,4 +1,4 @@
-.areaCard {
+.area-card {
   border: solid 1px black;
   display: flex;
   flex-direction: column;
@@ -8,17 +8,17 @@
   width: 100%;
 }
 
-.areaCardShortName {
+.area-card-short-name {
     margin: 1rem 0rem;
     text-decoration: underline;
 }
 
-.areaCardName {
+.area-card-name {
   margin-bottom: 2rem;
   font-style: italic;
 }
 
-.areaButton {
+.area-button {
   /* align-self: flex-end; */
   position: absolute;
   bottom: 10px;
