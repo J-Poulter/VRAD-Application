@@ -1,5 +1,7 @@
 import React from 'react';
 import './AreaCardContainer.css';
+
+// components ------------------------------
 import AreaCard from '../AreaCard/AreaCard';
 
 const AreaCardContainer = ({areaDetails, handleViewListingsClick}) => {
