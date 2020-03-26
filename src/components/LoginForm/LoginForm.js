@@ -14,7 +14,7 @@ class LoginForm extends Component {
     this.state = {
       username: '',
       email: '',
-      purpose: ''
+      purpose: 'vacation'
     }
   }
 

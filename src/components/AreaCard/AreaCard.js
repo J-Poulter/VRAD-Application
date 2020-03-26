@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './AreaCard.css';
 
-const AreaCard = (props) => {
-  const { about, id, name, shortname } = props.area;
+const AreaCard = ({ area, handleViewListingsClick }) => {
+  const { about, id, name, shortname } = area;
 
   return (
     <article className="area-card">
@@ -12,13 +13,22 @@ const AreaCard = (props) => {
       <button
         className="button area-button"
         id={id}
-        onClick={() => props.handleViewListingsClick(id)}
+        onClick={() => handleViewListingsClick(id)}
         type="button"
       >
         View Listings
         </button>
     </article>
   )
+}
+
+AreaCard.propTypes = {
+  area: PropTypes.shape({
+    about: PropTypes.string,
+    id: PropTypes.number,
+    name: PropTypes.string,
+    shortname: PropTypes.string,
+  }).isRequired
 }
 
 export default AreaCard;

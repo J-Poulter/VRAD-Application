@@ -5,9 +5,10 @@ import './App.css';
 import { getAreas, getAreaDetails, getListings } from '../../apiCalls/apiCalls';
 
 // components ------------------------------
-import Header from '../Header/Header';
-import LoginForm from '../LoginForm/LoginForm';
 import AreaCardContainer from '../AreaCardContainer/AreaCardContainer';
+import Header from '../Header/Header';
+import ListingCardContainer from '../ListingCardContainer/ListingCardContainer';
+import LoginForm from '../LoginForm/LoginForm';
 import UserProfile from '../UserProfile/UserProfile';
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
     super();
     this.state = {
       areaDetails: [],
+      authenticated: false,
       email: '',
       error: null,
       favorites: [],
@@ -43,6 +45,10 @@ class App extends Component {
   }
 
   handleViewListingsClick = async (id) => {
+    this.setState({
+      isLoading: true
+    })
+
     const areaListings = [...this.state.areaDetails]
       .filter(area => area.id === id)
       .pop()
@@ -51,7 +57,8 @@ class App extends Component {
     try {
       const listings = await getListings(areaListings);
       this.setState({
-        listings
+        listings,
+        isLoading: false
       })
     } catch (error) {
       this.setState({
@@ -71,7 +78,13 @@ class App extends Component {
   }
 
   render() {
-    const { email, purpose, username, areaDetails } = this.state;
+    const {
+      areaDetails,
+      email,
+      listings,
+      purpose,
+      username,
+    } = this.state;
 
     return (
       <div className="App">
@@ -83,6 +96,9 @@ class App extends Component {
             <AreaCardContainer
               areaDetails={areaDetails}
               handleViewListingsClick={this.handleViewListingsClick}
+            />
+            <ListingCardContainer
+              listings={listings}
             />
           </section>
         </main>
