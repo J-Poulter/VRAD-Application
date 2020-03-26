@@ -30,11 +30,11 @@ const ListingDetail = ({ listing }) => {
   )
 }
 
-ListingCard.propTypes = {
+ListingDetail.propTypes = {
   listing: PropTypes.shape({
     address: PropTypes.shape({
       street: PropTypes.string,
-      zip: PropTypes.string,
+      zip: PropTypes.number,
     }),
     area: PropTypes.string,
     details: PropTypes.shape({
@@ -48,7 +48,7 @@ ListingCard.propTypes = {
     }),
     listing_id: PropTypes.number,
     name: PropTypes.string
-  }),
+  }).isRequired,
   handleAddFavoriteClick: PropTypes.func.isRequired
 }
 

@@ -24,7 +24,25 @@ const ListingCard = ({ listing }) => {
 }
 
 ListingCard.propTypes = {
-  listing: PropTypes.object.isRequired,
+  listing: PropTypes.shape({
+    address: PropTypes.shape({
+      street: PropTypes.string,
+      zip: PropTypes.number,
+    }),
+    area: PropTypes.string,
+    details: PropTypes.shape({
+      baths: PropTypes.number,
+      beds: PropTypes.number,
+      cost_per_night: PropTypes.number,
+      features: PropTypes.arrayOf(PropTypes.string),
+      neighborhood_id: PropTypes.number,
+      seller_source: PropTypes.string,
+      superhost: PropTypes.bool,
+    }),
+    listing_id: PropTypes.number,
+    name: PropTypes.string
+  }).isRequired,
+  handleAddFavoriteClick: PropTypes.func.isRequired
 }
 
 export default ListingCard;
