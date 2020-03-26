@@ -18,6 +18,7 @@ const ListingCard = ({ listing }) => {
       <p>${details.cost_per_night}/night</p>
       <ul>{features}</ul>
       <img src={`/images/${listing_id}_a.jpg`} alt="test"/>
+      <button type="button">View Details</button>
     </article>
   )
 }
