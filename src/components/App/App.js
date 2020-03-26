@@ -90,38 +90,36 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-          <UserProfile email={email} purpose={purpose} username={username} />
-
-
+        <UserProfile email={email} purpose={purpose} username={username} />
         <main className="main">
-
           <section className="main-content">
-
-            <Route
-              path="/"
-              exact
-              render={() => <LoginForm handleLoginSubmit={this.handleLoginSubmit} />}
-            />
-
-            <Route
-              path="/areas"
-              render={() => (
-                <AreaCardContainer
-                  areaDetails={areaDetails}
-                  handleViewListingsClick={this.handleViewListingsClick}
-                />
-              )}
-            />
-
-
-            <ListingCardContainer
-              listings={listings}
-            />
+            <Switch>
+              <Route
+                path="/"
+                exact
+                render={() => <LoginForm handleLoginSubmit={this.handleLoginSubmit} />}
+              />
+              <Route
+                path="/areas"
+                exact
+                render={() => (
+                  <AreaCardContainer
+                    areaDetails={areaDetails}
+                    handleViewListingsClick={this.handleViewListingsClick}
+                  />
+                )}
+              />
+              <Route
+                path="/areas/:area_id/listings/"
+                render={({ match }) => {
+                  const { area_id } = match.params;
+                  console.log(area_id);
+                  return <ListingCardContainer areaId={area_id} listings={listings} />
+                }}
+              />
+            </Switch>
           </section>
-
         </main>
-
-
       </div>
     )
   }

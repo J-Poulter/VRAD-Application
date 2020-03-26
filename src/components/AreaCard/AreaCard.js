@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './AreaCard.css';
 
@@ -10,14 +11,16 @@ const AreaCard = ({ area, handleViewListingsClick }) => {
       <h2 className="area-card-short-name">{shortname}</h2>
       <h3 className="area-card-name">({name})</h3>
       <p className="area-card-description">{about}</p>
-      <button
-        className="button area-button"
-        id={id}
-        onClick={() => handleViewListingsClick(id)}
-        type="button"
-      >
-        View Listings
-        </button>
+      <Link to={`/areas/${id}/listings/`}>
+        <button
+          className="button area-button"
+          id={id}
+          onClick={() => handleViewListingsClick(id)}
+          type="button"
+        >
+          View Listings
+          </button>
+      </Link>
     </article>
   )
 }

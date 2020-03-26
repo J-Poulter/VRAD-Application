@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 // components ------------------------------
 import ListingCard from '../ListingCard/ListingCard';
 
-const ListingCardContainer = ({ listings }) => {
+const ListingCardContainer = ({ areaId, listings }) => {
   const renderedListingCards = listings.map(listing => {
     return <ListingCard
+            areaId={areaId}
             key={listing.listing_id}
             listing={listing}
           />
