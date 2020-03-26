@@ -117,8 +117,7 @@ class App extends Component {
                   return <ListingCardContainer areaId={area_id} listings={listings} />
                 }}
               />
-              {/* TODO Replace LoginForm with PageNotFound component */}
-              <Route component={LoginForm} />
+              {/* <Route component={LoginForm} /> */}
             </Switch>
           </section>
         </main>
