@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route, Link, NavLink, Switch } from 'react-router-dom'
 import './App.css';
 
 // api ------------------------------
@@ -16,10 +17,10 @@ class App extends Component {
     super();
     this.state = {
       areaDetails: [],
-      authenticated: false,
       email: '',
       error: null,
       favorites: [],
+      isAuthenticated: false,
       isLoading: true,
       listings: [],
       purpose: '',
@@ -89,17 +90,35 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <UserProfile email={email} purpose={purpose} username={username} />
         <main className="main">
-          <UserProfile email={email} purpose={purpose} username={username} />
           <section className="main-content">
-            <LoginForm handleLoginSubmit={this.handleLoginSubmit} />
-            <AreaCardContainer
-              areaDetails={areaDetails}
-              handleViewListingsClick={this.handleViewListingsClick}
-            />
-            <ListingCardContainer
-              listings={listings}
-            />
+            <Switch>
+              <Route
+                path="/"
+                exact
+                render={() => <LoginForm handleLoginSubmit={this.handleLoginSubmit} />}
+              />
+              <Route
+                path="/areas"
+                exact
+                render={() => (
+                  <AreaCardContainer
+                    areaDetails={areaDetails}
+                    handleViewListingsClick={this.handleViewListingsClick}
+                  />
+                )}
+              />
+              <Route
+                path="/areas/:area_id/listings/"
+                render={({ match }) => {
+                  const { area_id } = match.params;
+                  console.log(area_id);
+                  return <ListingCardContainer areaId={area_id} listings={listings} />
+                }}
+              />
+              {/* <Route component={LoginForm} /> */}
+            </Switch>
           </section>
         </main>
       </div>

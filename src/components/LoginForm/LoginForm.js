@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 import './LoginForm.css'
 
 // icons ------------------------------
@@ -14,7 +15,8 @@ class LoginForm extends Component {
     this.state = {
       username: '',
       email: '',
-      purpose: 'vacation'
+      purpose: 'vacation',
+      redirectToReferrer: false
     }
   }
 
@@ -35,12 +37,18 @@ class LoginForm extends Component {
       this.setState({
         username: '',
         email: '',
-        purpose: ''
+        purpose: '',
+        redirectToReferrer: true
       })
     }
 
   render() {
-    const { username, email, purpose } = this.state;
+    const { email, purpose, redirectToReferrer, username } = this.state;
+    const isFormComplete = username && email && purpose;
+
+    if(redirectToReferrer) {
+      return <Redirect to="/areas" />
+    }
 
     return (
       <div className="container">
@@ -88,7 +96,11 @@ class LoginForm extends Component {
                 <option value="other">Other</option>
               </select>
             </label>
-            <button type="submit">Log In</button>
+              <button
+                disabled={isFormComplete ? '' : 'disabled'}
+                type="submit">
+                Log In
+              </button>
           </form>
         </div>
         <section className="overlay-container">
