@@ -27,6 +27,14 @@ form {
   margin-top: 1.4rem;
 }
 
+.form-login button:disabled {
+  opacity: 0.5;
+}
+
+.form-login button:disabled:hover {
+  transform: scale(1);
+}
+
 .form-login input,
 .form-login select {
   background-color: var(--c-gray-light);

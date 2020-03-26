@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route, Link, NavLink, Switch } from 'react-router-dom'
 import './App.css';
 
 // api ------------------------------
@@ -16,10 +17,10 @@ class App extends Component {
     super();
     this.state = {
       areaDetails: [],
-      authenticated: false,
       email: '',
       error: null,
       favorites: [],
+      isAuthenticated: false,
       isLoading: true,
       listings: [],
       purpose: '',
@@ -89,19 +90,38 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <main className="main">
           <UserProfile email={email} purpose={purpose} username={username} />
+
+
+        <main className="main">
+
           <section className="main-content">
-            <LoginForm handleLoginSubmit={this.handleLoginSubmit} />
-            <AreaCardContainer
-              areaDetails={areaDetails}
-              handleViewListingsClick={this.handleViewListingsClick}
+
+            <Route
+              path="/"
+              exact
+              render={() => <LoginForm handleLoginSubmit={this.handleLoginSubmit} />}
             />
+
+            <Route
+              path="/areas"
+              render={() => (
+                <AreaCardContainer
+                  areaDetails={areaDetails}
+                  handleViewListingsClick={this.handleViewListingsClick}
+                />
+              )}
+            />
+
+
             <ListingCardContainer
               listings={listings}
             />
           </section>
+
         </main>
+
+
       </div>
     )
   }

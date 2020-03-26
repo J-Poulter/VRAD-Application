@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import './LoginForm.css'
 
 // icons ------------------------------
@@ -41,6 +42,7 @@ class LoginForm extends Component {
 
   render() {
     const { username, email, purpose } = this.state;
+    const isFormComplete = username && email && purpose;
 
     return (
       <div className="container">
@@ -88,7 +90,13 @@ class LoginForm extends Component {
                 <option value="other">Other</option>
               </select>
             </label>
-            <button type="submit">Log In</button>
+            <Link to="/areas">
+              <button
+                disabled={isFormComplete ? '' : 'disabled'}
+                type="submit">
+                Log In
+              </button>
+            </Link>
           </form>
         </div>
         <section className="overlay-container">
