@@ -44,6 +44,12 @@ class App extends Component {
       console.error(error.message);
     }
   }
+  
+  handleAddFavoriteClick = (listing) => {
+    this.setState({
+      favorites: [...this.state.favorites, listing]
+    })
+  }
 
   handleViewListingsClick = async (id) => {
     this.setState({
