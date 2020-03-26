@@ -7,6 +7,7 @@ import { getAreas, getAreaDetails, getListings } from '../../apiCalls/apiCalls';
 // components ------------------------------
 import AreaCardContainer from '../AreaCardContainer/AreaCardContainer';
 import Header from '../Header/Header';
+import ListingCardContainer from '../ListingCardContainer/ListingCardContainer';
 import LoginForm from '../LoginForm/LoginForm';
 import UserProfile from '../UserProfile/UserProfile';
 
@@ -77,7 +78,13 @@ class App extends Component {
   }
 
   render() {
-    const { email, purpose, username, areaDetails } = this.state;
+    const {
+      areaDetails,
+      email,
+      listings,
+      purpose,
+      username,
+    } = this.state;
 
     return (
       <div className="App">
@@ -89,6 +96,9 @@ class App extends Component {
             <AreaCardContainer
               areaDetails={areaDetails}
               handleViewListingsClick={this.handleViewListingsClick}
+            />
+            <ListingCardContainer
+              listings={listings}
             />
           </section>
         </main>

@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types';
 
 const ListingCard = ({ listing }) => {
-  const { address, area, details, name } = listing;
+  const { address, area, details, listing_id, name } = listing;
   const features = details.features.map(feature => {
-    return <li>{feature}</li>
+    return <li key={feature}>{feature}</li>
   })
 
   return (
@@ -17,7 +17,7 @@ const ListingCard = ({ listing }) => {
       <p>Baths: {details.baths}</p>
       <p>${details.cost_per_night}/night</p>
       <ul>{features}</ul>
-      <img src="" alt=""/>
+      <img src={`/images/${listing_id}_a.jpg`} alt="test"/>
     </article>
   )
 }
