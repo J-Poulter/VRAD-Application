@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './AreaCard.css';
 
 const AreaCard = ({ area, handleViewListingsClick }) => {
-  const { about, id, name, shortname } = area;
+  const { about, id, listings, name, shortname } = area;
 
   return (
     <article className="area-card">
@@ -15,7 +15,7 @@ const AreaCard = ({ area, handleViewListingsClick }) => {
         <button
           className="button area-button"
           id={id}
-          onClick={() => handleViewListingsClick(id)}
+          onClick={() => handleViewListingsClick(listings)}
           type="button"
         >
           View Listings
@@ -29,6 +29,7 @@ AreaCard.propTypes = {
   area: PropTypes.shape({
     about: PropTypes.string,
     id: PropTypes.number,
+    listings: PropTypes.arrayOf(PropTypes.string),
     name: PropTypes.string,
     shortname: PropTypes.string,
   }).isRequired
