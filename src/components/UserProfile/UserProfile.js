@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './UserProfile.css'
 
 const UserProfile = ({ email, purpose, username }) => {
   return (
-    <section className="userprofile">
-      <p>{username}</p>
-      <p>{email}</p>
-      <p>{purpose}</p>
+    <section className="user-profile">
+      <h4>Welcome, {username}!</h4>
+      <p>Current travel purpose: {purpose}.</p>
     </section>
   )
 }

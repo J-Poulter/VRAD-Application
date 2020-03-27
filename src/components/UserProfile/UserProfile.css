@@ -1,0 +1,9 @@
+.user-profile {
+  background-color: var(--c-gray-med);
+  padding: 1rem 2rem;
+  width: 100%;
+}
+
+.user-profile p {
+  margin: 0;
+}

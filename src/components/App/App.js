@@ -96,7 +96,8 @@ class App extends Component {
     this.setState({
       username,
       email,
-      purpose
+      purpose,
+      isAuthenticated: true
     })
   }
 
@@ -111,6 +112,7 @@ class App extends Component {
       areaDetails,
       email,
       favorites,
+      isAuthenticated,
       listings,
       purpose,
       username,
@@ -119,7 +121,8 @@ class App extends Component {
     return (
       <div className="App">
         <Header favorites={favorites.length} />
-        <UserProfile email={email} purpose={purpose} username={username} />
+        {isAuthenticated &&
+          <UserProfile email={email} purpose={purpose} username={username} />}
         <main className="main">
           <section className="main-content">
             <Switch>
