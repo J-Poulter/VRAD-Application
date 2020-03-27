@@ -97,6 +97,7 @@ class App extends Component {
     const {
       areaDetails,
       email,
+      favorites,
       listings,
       purpose,
       username,
@@ -104,7 +105,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Header />
+        <Header favorites={favorites.length} />
         <UserProfile email={email} purpose={purpose} username={username} />
         <main className="main">
           <section className="main-content">

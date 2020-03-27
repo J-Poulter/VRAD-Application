@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Header.css';
 
 // components ------------------------------
 import logo from './logo.png'
 
-const Header = () => {
+const Header = ({ favorites }) => {
   return(
     <header className="header">
       <div className="header-container">
@@ -16,7 +17,7 @@ const Header = () => {
           className="button favorite-button"
           type="button"
         >
-          Favorites({4})
+          Favorites({ favorites })
         </button>
         <button
           className="button logout-button"
@@ -27,6 +28,10 @@ const Header = () => {
       </nav>
     </header>
   )
+}
+
+Header.propTypes = {
+  favorites: PropTypes.number.isRequired,
 }
 
 export default Header;
