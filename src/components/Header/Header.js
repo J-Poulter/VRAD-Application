@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './Header.css';
 
@@ -15,9 +15,9 @@ const Header = ({ isAuthenticated }) => {
       </div>
       {isAuthenticated &&
         <nav className="nav">
-          <Link to="/">
+          <NavLink to="/" className="nav-link">
             Log Out
-          </Link>
+          </NavLink>
         </nav>
       }
     </header>
