@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './Header.css';
 
@@ -13,12 +14,14 @@ const Header = ({ favorites }) => {
         <h1 className="header-title">VRAD</h1>
       </div>
       <nav className="nav">
-        <button
-          className="button favorite-button"
-          type="button"
-        >
-          Favorites({ favorites })
-        </button>
+        <Link to="/favorites">
+          <button
+            className="button favorite-button"
+            type="button"
+          >
+            Favorites({ favorites })
+          </button>
+        </Link>
         <button
           className="button logout-button"
           type="button"

@@ -12,9 +12,17 @@ const ListingCardContainer = ({ listings }) => {
           />
   })
 
+  const renderContent = () => {
+    if(renderedListingCards.length) {
+      return renderedListingCards
+    }  else {
+      return <h2>No listings!</h2>
+    }
+  }
+
   return (
     <section>
-      {renderedListingCards}
+      {renderContent()}
     </section>
   )
 }

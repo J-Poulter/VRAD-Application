@@ -146,6 +146,13 @@ class App extends Component {
                 }}
               />
               <Route
+                path="/favorites"
+                exact
+                render={() => {
+                  return <ListingCardContainer listings={favorites} />
+                }}
+              />
+              <Route
                 path="/areas/:area_id/listings/:listing_id"
                 render={({ match }) => {
                   const { listing_id } = match.params;
