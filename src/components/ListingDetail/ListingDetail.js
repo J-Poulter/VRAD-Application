@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types'
 import './ListingDetail.css';
 
-const ListingDetail = ({ listing }) => {
+const ListingDetail = ({ handleAddFavoriteClick, isListingFavorite, listing }) => {
   const { address, area, details, listing_id, name } = listing;
   const features = details.features.map(feature => {
     return <li key={feature}>{feature}</li>
@@ -23,9 +23,14 @@ const ListingDetail = ({ listing }) => {
         <img src={`/images/${listing_id}_b.jpg`} alt="listing 2" />
         <img src={`/images/${listing_id}_c.jpg`} alt="listing 3" />
       </section>
-      <button 
-        onClick={() => listing.handleAddFavoriteClick(listing)}
-        type="button">Add to Favorites</button>
+      <button
+        onClick={() => handleAddFavoriteClick(listing)}
+        type="button"
+      >
+        {isListingFavorite(listing_id)
+          ? 'Remove from Favorites'
+          : 'Add to Favorites'}
+      </button>
     </article>
   )
 }
@@ -49,6 +54,7 @@ ListingDetail.propTypes = {
     listing_id: PropTypes.number,
     name: PropTypes.string
   }).isRequired,
+  isListingFavorite: PropTypes.func.isRequired,
   handleAddFavoriteClick: PropTypes.func.isRequired
 }
 

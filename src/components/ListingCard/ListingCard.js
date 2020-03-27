@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import PropTypes from 'prop-types';
 
 const ListingCard = ({ listing }) => {
@@ -35,8 +34,7 @@ ListingCard.propTypes = {
     }),
     listing_id: PropTypes.number,
     name: PropTypes.string
-  }).isRequired,
-  handleAddFavoriteClick: PropTypes.func.isRequired
+  }).isRequired
 }
 
 export default ListingCard;

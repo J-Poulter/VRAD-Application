@@ -1,10 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './Header.css';
 
 // components ------------------------------
 import logo from './logo.png'
 
-const Header = () => {
+const Header = ({ favorites }) => {
   return(
     <header className="header">
       <div className="header-container">
@@ -12,12 +14,14 @@ const Header = () => {
         <h1 className="header-title">VRAD</h1>
       </div>
       <nav className="nav">
-        <button
-          className="button favorite-button"
-          type="button"
-        >
-          Favorites({4})
-        </button>
+        <Link to="/favorites">
+          <button
+            className="button favorite-button"
+            type="button"
+          >
+            Favorites({ favorites })
+          </button>
+        </Link>
         <button
           className="button logout-button"
           type="button"
@@ -27,6 +31,10 @@ const Header = () => {
       </nav>
     </header>
   )
+}
+
+Header.propTypes = {
+  favorites: PropTypes.number.isRequired,
 }
 
 export default Header;

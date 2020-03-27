@@ -45,10 +45,30 @@ class App extends Component {
       console.error(error.message);
     }
   }
-  
+
   handleAddFavoriteClick = (listing) => {
-    this.setState({
-      favorites: [...this.state.favorites, listing]
+    const { favorites } = this.state;
+    const alreadyFavorite = favorites.find(favorite => {
+      return favorite.listing_id === listing.listing_id;
+    })
+
+    if(alreadyFavorite) {
+      this.setState({
+        favorites: favorites.filter(favorite => {
+          return favorite.listing_id !== listing.listing_id;
+        })
+      })
+    } else {
+      this.setState({
+        favorites: [...favorites, listing]
+      })
+    }
+  }
+
+  isListingFavorite = (listing_id) => {
+    const { favorites } = this.state;
+    return !!favorites.find(favorite => {
+      return favorite.listing_id === listing_id;
     })
   }
 
@@ -81,7 +101,6 @@ class App extends Component {
   }
 
   findListing = (listingId) => {
-    console.log(listingId)
     return this.state.listings.find(listing => {
       return listing.listing_id === parseInt(listingId)
     })
@@ -91,6 +110,7 @@ class App extends Component {
     const {
       areaDetails,
       email,
+      favorites,
       listings,
       purpose,
       username,
@@ -98,7 +118,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Header />
+        <Header favorites={favorites.length} />
         <UserProfile email={email} purpose={purpose} username={username} />
         <main className="main">
           <section className="main-content">
@@ -126,14 +146,21 @@ class App extends Component {
                 }}
               />
               <Route
+                path="/favorites"
+                exact
+                render={() => {
+                  return <ListingCardContainer listings={favorites} />
+                }}
+              />
+              <Route
                 path="/areas/:area_id/listings/:listing_id"
                 render={({ match }) => {
                   const { listing_id } = match.params;
-                  const selectedListing = this.findListing(listing_id)
-                  return <ListingDetail listing={selectedListing} />
+                  const selectedListing = this.findListing(listing_id);
+                  return <ListingDetail handleAddFavoriteClick={this.handleAddFavoriteClick} isListingFavorite={this.isListingFavorite} listing={selectedListing} />
                 }}
               />
-              {/* <Route component={LoginForm} /> */}              
+              {/* <Route component={LoginForm} /> */}
             </Switch>
           </section>
         </main>
