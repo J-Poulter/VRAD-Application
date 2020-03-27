@@ -52,11 +52,17 @@ class App extends Component {
       return favorite.listing_id === listing.listing_id;
     })
 
-    if(alreadyFavorite) return;
-
-    this.setState({
-      favorites: [...favorites, listing]
-    })
+    if(alreadyFavorite) {
+      this.setState({
+        favorites: favorites.filter(favorite => {
+          return favorite.listing_id !== listing.listing_id;
+        })
+      })
+    } else {
+      this.setState({
+        favorites: [...favorites, listing]
+      })
+    }
   }
 
   isListingFavorite = (listing_id) => {
