@@ -1,0 +1,12 @@
+.user-profile {
+  align-items: center;
+  background-color: var(--c-gray-med);
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  width: 100%;
+}
+
+.user-profile p {
+  margin: 0;
+}

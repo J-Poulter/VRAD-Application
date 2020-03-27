@@ -20,6 +20,11 @@
   padding: 0;
 }
 
+.App,
+#root {
+  height: 90%;
+}
+
 body {
   background: var(--c-white-med);
   height: 100%;
@@ -47,4 +52,8 @@ button:hover {
 
 button:focus {
   outline: none;
+}
+
+html {
+  height: 100%;
 }

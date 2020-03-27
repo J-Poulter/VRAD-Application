@@ -37,7 +37,7 @@ class LoginForm extends Component {
       this.setState({
         username: '',
         email: '',
-        purpose: '',
+        purpose: 'vacation',
         redirectToReferrer: true
       })
     }
@@ -106,8 +106,8 @@ class LoginForm extends Component {
         <section className="overlay-container">
           <div className="overlay">
             <div className="overlay-panel overlay-right">
-              <h1>Hello, Friend!</h1>
-              <p>Log in to begin your journey in Denver</p>
+              <h1>Hello, {username ? username : 'Friend'}!</h1>
+              <p>Log in to begin your {purpose ? purpose : 'journey'} in Denver</p>
             </div>
           </div>
         </section>
