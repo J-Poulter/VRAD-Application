@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types'
 import './ListingDetail.css';
 
-const ListingDetail = ({ listing }) => {
+const ListingDetail = ({ handleAddFavoriteClick, listing }) => {
   const { address, area, details, listing_id, name } = listing;
   const features = details.features.map(feature => {
     return <li key={feature}>{feature}</li>
@@ -23,8 +23,8 @@ const ListingDetail = ({ listing }) => {
         <img src={`/images/${listing_id}_b.jpg`} alt="listing 2" />
         <img src={`/images/${listing_id}_c.jpg`} alt="listing 3" />
       </section>
-      <button 
-        onClick={() => listing.handleAddFavoriteClick(listing)}
+      <button
+        onClick={() => handleAddFavoriteClick(listing)}
         type="button">Add to Favorites</button>
     </article>
   )

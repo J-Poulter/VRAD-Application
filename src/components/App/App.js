@@ -45,7 +45,7 @@ class App extends Component {
       console.error(error.message);
     }
   }
-  
+
   handleAddFavoriteClick = (listing) => {
     this.setState({
       favorites: [...this.state.favorites, listing]
@@ -81,7 +81,6 @@ class App extends Component {
   }
 
   findListing = (listingId) => {
-    console.log(listingId)
     return this.state.listings.find(listing => {
       return listing.listing_id === parseInt(listingId)
     })
@@ -130,10 +129,10 @@ class App extends Component {
                 render={({ match }) => {
                   const { listing_id } = match.params;
                   const selectedListing = this.findListing(listing_id)
-                  return <ListingDetail listing={selectedListing} />
+                  return <ListingDetail handleAddFavoriteClick={this.handleAddFavoriteClick} listing={selectedListing} />
                 }}
               />
-              {/* <Route component={LoginForm} /> */}              
+              {/* <Route component={LoginForm} /> */}
             </Switch>
           </section>
         </main>
