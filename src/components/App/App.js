@@ -52,15 +52,10 @@ class App extends Component {
     })
   }
 
-  handleViewListingsClick = async (id) => {
+  handleViewListingsClick = async (areaListings) => {
     this.setState({
       isLoading: true
     })
-
-    const areaListings = [...this.state.areaDetails]
-      .filter(area => area.id === id)
-      .pop()
-      .listings;
 
     try {
       const listings = await getListings(areaListings);
