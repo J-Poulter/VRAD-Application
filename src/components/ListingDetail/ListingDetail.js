@@ -19,12 +19,12 @@ const ListingDetail = ({ listing }) => {
       <p>${details.cost_per_night}/night</p>
       <ul>{features}</ul>
       <section>
-        <img src={`/images/${listing_id}_a.jpg`} alt="listing image 1" />
-        <img src={`/images/${listing_id}_b.jpg`} alt="listing image 2" />
-        <img src={`/images/${listing_id}_c.jpg`} alt="listing image 3" />
+        <img src={`/images/${listing_id}_a.jpg`} alt="listing 1" />
+        <img src={`/images/${listing_id}_b.jpg`} alt="listing 2" />
+        <img src={`/images/${listing_id}_c.jpg`} alt="listing 3" />
       </section>
       <button 
-        onClick={() => props.handleAddFavoriteClick(listing)}
+        onClick={() => listing.handleAddFavoriteClick(listing)}
         type="button">Add to Favorites</button>
     </article>
   )
