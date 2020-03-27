@@ -6,7 +6,7 @@ import './Header.css';
 // components ------------------------------
 import logo from './logo.png'
 
-const Header = ({ isAuthenticated }) => {
+const Header = ({ handleLogoutClick, isAuthenticated }) => {
   return(
     <header className="header">
       <div className="header-container">
@@ -15,7 +15,7 @@ const Header = ({ isAuthenticated }) => {
       </div>
       {isAuthenticated &&
         <nav className="nav">
-          <NavLink to="/" className="nav-link">
+          <NavLink to="/" className="nav-link" onClick={handleLogoutClick} >
             Log Out
           </NavLink>
         </nav>
@@ -25,6 +25,7 @@ const Header = ({ isAuthenticated }) => {
 }
 
 Header.propTypes = {
+  handleLogoutClick: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
 }
 export default Header;

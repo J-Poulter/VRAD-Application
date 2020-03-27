@@ -101,6 +101,12 @@ class App extends Component {
     })
   }
 
+  handleLogoutClick = () => {
+    this.setState({
+      isAuthenticated: false
+    })
+  }
+
   findListing = (listingId) => {
     return this.state.listings.find(listing => {
       return listing.listing_id === parseInt(listingId)
@@ -120,7 +126,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Header isAuthenticated={isAuthenticated} />
+        <Header handleLogoutClick={this.handleLogoutClick} isAuthenticated={isAuthenticated} />
         {isAuthenticated &&
           <UserProfile email={email} favorites={favorites.length} purpose={purpose} username={username} />}
         <main className="main">
