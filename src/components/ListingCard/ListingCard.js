@@ -1,14 +1,18 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 import PropTypes from 'prop-types';
 
 const ListingCard = ({ listing }) => {
-  const { listing_id, name } = listing;
+  const { area_id, listing_id, name } = listing;
 
   return (
     <article>
       <p>{name}</p>
       <img src={`/images/${listing_id}_a.jpg`} alt="test"/>
-      <button type="button">View Details</button>
+      <Link to={`/areas/${area_id}/listings/${listing_id}`}>
+        <button type="button">View Details</button>
+      </Link>
     </article>
   )
 }
