@@ -47,8 +47,15 @@ class App extends Component {
   }
 
   handleAddFavoriteClick = (listing) => {
+    const { favorites } = this.state;
+    const alreadyFavorite = favorites.find(favorite => {
+      return favorite.listing_id === listing.listing_id;
+    })
+
+    if(alreadyFavorite) return;
+
     this.setState({
-      favorites: [...this.state.favorites, listing]
+      favorites: [...favorites, listing]
     })
   }
 
