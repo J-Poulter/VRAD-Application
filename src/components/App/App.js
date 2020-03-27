@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link, NavLink, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import './App.css';
 
 // api ------------------------------
@@ -9,6 +9,7 @@ import { getAreas, getAreaDetails, getListings } from '../../apiCalls/apiCalls';
 import AreaCardContainer from '../AreaCardContainer/AreaCardContainer';
 import Header from '../Header/Header';
 import ListingCardContainer from '../ListingCardContainer/ListingCardContainer';
+import ListingDetail from '../ListingDetail/ListingDetail';
 import LoginForm from '../LoginForm/LoginForm';
 import UserProfile from '../UserProfile/UserProfile';
 
@@ -84,6 +85,12 @@ class App extends Component {
     })
   }
 
+  findListing = (listingId) => {
+    return this.state.listings.find(listing => {
+      return listing.listing_id === listingId
+    })
+  }
+
   render() {
     const {
       areaDetails,
@@ -117,13 +124,19 @@ class App extends Component {
               />
               <Route
                 path="/areas/:area_id/listings/"
-                render={({ match }) => {
-                  const { area_id } = match.params;
-                  console.log(area_id);
-                  return <ListingCardContainer areaId={area_id} listings={listings} />
+                render={() => {
+                  return <ListingCardContainer listings={listings} />
                 }}
               />
-              {/* <Route component={LoginForm} /> */}
+              <Route
+                path="/areas/:area_id/listings/:listing_id"
+                render={({ match }) => {
+                  const { listing_id } = match.params;
+                  const selectedListing = this.findListing(listing_id)
+                  return <ListingDetail listing={selectedListing} />
+                }}
+              />
+              {/* <Route component={LoginForm} /> */}              
             </Switch>
           </section>
         </main>
