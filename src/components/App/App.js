@@ -59,6 +59,13 @@ class App extends Component {
     })
   }
 
+  isListingFavorite = (listing_id) => {
+    const { favorites } = this.state;
+    return !!favorites.find(favorite => {
+      return favorite.listing_id === listing_id;
+    })
+  }
+
   handleViewListingsClick = async (areaListings) => {
     this.setState({
       isLoading: true
@@ -136,8 +143,8 @@ class App extends Component {
                 path="/areas/:area_id/listings/:listing_id"
                 render={({ match }) => {
                   const { listing_id } = match.params;
-                  const selectedListing = this.findListing(listing_id)
-                  return <ListingDetail handleAddFavoriteClick={this.handleAddFavoriteClick} listing={selectedListing} />
+                  const selectedListing = this.findListing(listing_id);
+                  return <ListingDetail handleAddFavoriteClick={this.handleAddFavoriteClick} isListingFavorite={this.isListingFavorite} listing={selectedListing} />
                 }}
               />
               {/* <Route component={LoginForm} /> */}
