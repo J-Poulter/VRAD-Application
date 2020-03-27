@@ -86,8 +86,9 @@ class App extends Component {
   }
 
   findListing = (listingId) => {
+    console.log(listingId)
     return this.state.listings.find(listing => {
-      return listing.listing_id === listingId
+      return listing.listing_id === parseInt(listingId)
     })
   }
 
@@ -124,6 +125,7 @@ class App extends Component {
               />
               <Route
                 path="/areas/:area_id/listings/"
+                exact
                 render={() => {
                   return <ListingCardContainer listings={listings} />
                 }}
