@@ -120,9 +120,9 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Header favorites={favorites.length} />
+        <Header isAuthenticated={isAuthenticated} />
         {isAuthenticated &&
-          <UserProfile email={email} purpose={purpose} username={username} />}
+          <UserProfile email={email} favorites={favorites.length} purpose={purpose} username={username} />}
         <main className="main">
           <section className="main-content">
             <Switch>

@@ -6,35 +6,25 @@ import './Header.css';
 // components ------------------------------
 import logo from './logo.png'
 
-const Header = ({ favorites }) => {
+const Header = ({ isAuthenticated }) => {
   return(
     <header className="header">
       <div className="header-container">
         <img className="logo" src={logo} alt="VRAD travel logo"/>
         <h1 className="header-title">VRAD</h1>
       </div>
-      <nav className="nav">
-        <Link to="/favorites">
-          <button
-            className="button favorite-button"
-            type="button"
-          >
-            Favorites({ favorites })
-          </button>
-        </Link>
-        <button
-          className="button logout-button"
-          type="button"
-        >
-          Log Out
-        </button>
-      </nav>
+      {isAuthenticated &&
+        <nav className="nav">
+          <Link to="/">
+            Log Out
+          </Link>
+        </nav>
+      }
     </header>
   )
 }
 
 Header.propTypes = {
-  favorites: PropTypes.number.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
 }
-
 export default Header;
