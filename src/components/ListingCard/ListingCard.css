@@ -7,7 +7,7 @@
 }
 
 .listing-card-body {
-  height: 228px;
+  overflow: hidden;
 }
 
 .listing-card-footer {
@@ -25,13 +25,19 @@
 .listing-card-image {
   object-fit: cover;
   object-position: center;
-  width: 100%;
+  max-width: 100%;
 }
 
 .listing-card-title {
   line-height: 1.2;
   font-size: 1rem;
   font-weight: 600;
+}
+
+@media screen and (min-width: 20em) {
+  .listing-card {
+    flex: 1 0 280px;
+  }
 }
 
 @media screen and (min-width: 40em) {
