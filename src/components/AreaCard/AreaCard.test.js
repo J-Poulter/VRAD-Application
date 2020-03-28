@@ -21,7 +21,15 @@ describe('AreaCard', () => {
     };
   
   beforeEach(() => {
-
+    areaCard = render(
+      <BrowserRouter>
+        <AreaCard
+          area={mockArea}
+          handleViewListingsClick={mockHandleViewListingsClick}
+          key={590}
+        />
+      </BrowserRouter>
+    )
   })
   
   afterEach(cleanup)
