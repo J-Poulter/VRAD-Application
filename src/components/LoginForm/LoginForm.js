@@ -51,13 +51,12 @@ class LoginForm extends Component {
     }
 
     return (
-      <div className="container">
-        <div className="form-container sign-in-container">
+        <section className="login-form-container">
           <form
-            className="form-login"
+            className="login-form"
             onSubmit={this.handleSubmit}
           >
-            <h1>Sign in</h1>
+            <h1 className="login-form-title">Log in</h1>
             <article className="social-container">
               <a href="/" className="social"><i className="fab fa-facebook-f"></i></a>
               <a href="/" className="social"><i className="fab fa-google-plus-g"></i></a>
@@ -102,16 +101,11 @@ class LoginForm extends Component {
                 Log In
               </button>
           </form>
-        </div>
-        <section className="overlay-container">
-          <div className="overlay">
-            <div className="overlay-panel overlay-right">
-              <h1>Hello, {username ? username : 'Friend'}!</h1>
-              <p>Log in to begin your {purpose ? purpose : 'journey'} in Denver</p>
-            </div>
-          </div>
+        <section className="welcome-message">
+          <h1>Hello, {username ? username : 'Friend'}!</h1>
+          <p>Log in to begin your {purpose ? purpose : 'journey'} in Denver</p>
         </section>
-      </div>
+      </section>
     )
   }
 }

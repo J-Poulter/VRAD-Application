@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './ListingCardContainer.css';
 
 // components ------------------------------
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
@@ -26,7 +27,7 @@ const ListingCardContainer = ({ error, isLoading, listings }) => {
     <>
       {error && <ErrorMessage error={error} />}
       {isLoading && <Spinner />}
-      <section>
+      <section className="listing-card-container">
         {renderContent()}
       </section>
     </>
