@@ -35,8 +35,13 @@ describe('AreaCard', () => {
   afterEach(cleanup)
 
   it('should render the correct content', () => {
-
+    
   })
 
+  it('should invoke handleViewListingsClick on click', () => {
+    const { getByText } = areaCard
+    const viewListingsButton = getByText('View Listings')
+    fireEvent.click(viewListingsButton)
 
+  })
 })
