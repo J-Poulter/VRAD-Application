@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './UserProfile.css'
 
-const UserProfile = ({ email, favorites, purpose, username }) => {
+const UserProfile = ({ favorites, purpose, username }) => {
   return (
     <section className="user-profile">
       <div>
@@ -25,7 +25,6 @@ const UserProfile = ({ email, favorites, purpose, username }) => {
 }
 
 UserProfile.propTypes = {
-  email: PropTypes.string.isRequired,
   favorite: PropTypes.number,
   purpose: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
