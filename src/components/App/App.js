@@ -164,7 +164,13 @@ class App extends Component {
                 path="/areas/:area_id/listings/"
                 exact
                 render={() => {
-                  return <ListingCardContainer listings={listings} />
+                  return (
+                    <ListingCardContainer
+                      error={error}
+                      isLoading={isLoading}
+                      listings={listings}
+                    />
+                  )
                 }}
               />
               <Route
