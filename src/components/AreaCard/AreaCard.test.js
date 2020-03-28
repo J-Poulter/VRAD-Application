@@ -43,5 +43,7 @@ describe('AreaCard', () => {
     const viewListingsButton = getByText('View Listings')
     fireEvent.click(viewListingsButton)
 
+    expect(mockHandleViewListingsClick).toHaveBeenCalled();
+    expect(mockHandleViewListingsClick).toHaveBeenCalledWith(["/api/v1/listings/3"]);
   })
 })
