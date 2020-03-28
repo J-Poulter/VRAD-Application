@@ -51,7 +51,10 @@ describe('AreaCardContainer', () => {
     const cardDescript = getByText('Park Hill features one of the best views');
     const cardButtons = getAllByText('View Listings');
     
-
+    expect(cardShortname).toBeInTheDocument();
+    expect(cardName).toBeInTheDocument();
+    expect(cardDescript).toBeInTheDocument();
+    expect(cardButtons).toHaveLength(2);
   })
 
   // it('should ')
