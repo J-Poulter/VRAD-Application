@@ -36,7 +36,17 @@ describe('AreaCardContainer', () => {
   afterEach(cleanup)
 
   it('should render the correct content', () => {
-    
+    const { getAllByText, getByText } = render(
+      <BrowserRouter>
+        <AreaCardContainer
+          areaDetails={mockAreaDetails}
+          error={null}
+          handleViewListingsClick={mockHandleViewListingsClick}
+          isLoading={false}
+        />
+      </BrowserRouter>
+    )
+ 
   })
 
   // it('should ')
