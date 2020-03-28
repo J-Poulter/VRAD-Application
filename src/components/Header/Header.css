@@ -25,3 +25,8 @@
   display: flex;
   justify-content: space-between;
 }
+
+.header a {
+  color: var(--c-gray-dark);
+  text-decoration: none;
+}
