@@ -45,7 +45,8 @@ describe('AreaCardContainer', () => {
           isLoading={false}
         />
       </BrowserRouter>
-    )
+    );
+
     const cardShortname = getByText('RiNo');
     const cardName = getByText('(River North)');
     const cardDescript = getByText('Park Hill features one of the best views');
@@ -56,6 +57,4 @@ describe('AreaCardContainer', () => {
     expect(cardDescript).toBeInTheDocument();
     expect(cardButtons).toHaveLength(2);
   })
-
-  // it('should ')
 })
