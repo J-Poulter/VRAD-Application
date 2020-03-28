@@ -26,7 +26,7 @@ const UserProfile = ({ email, favorites, purpose, username }) => {
 
 UserProfile.propTypes = {
   email: PropTypes.string.isRequired,
-  favorite: PropTypes.number.isRequired,
+  favorite: PropTypes.number,
   purpose: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
 }

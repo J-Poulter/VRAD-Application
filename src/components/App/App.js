@@ -11,6 +11,7 @@ import Header from '../Header/Header';
 import ListingCardContainer from '../ListingCardContainer/ListingCardContainer';
 import ListingDetail from '../ListingDetail/ListingDetail';
 import LoginForm from '../LoginForm/LoginForm';
+import Spinner from '../Spinner/Spinner';
 import UserProfile from '../UserProfile/UserProfile';
 
 class App extends Component {
@@ -119,6 +120,7 @@ class App extends Component {
       email,
       favorites,
       isAuthenticated,
+      isLoading,
       listings,
       purpose,
       username,
@@ -131,6 +133,7 @@ class App extends Component {
           <UserProfile email={email} favorites={favorites.length} purpose={purpose} username={username} />}
         <main className="main">
           <section className="main-content">
+            {isLoading && <Spinner />}
             <Switch>
               <Route
                 path="/"
