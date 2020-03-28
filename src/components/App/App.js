@@ -11,6 +11,7 @@ import Header from '../Header/Header';
 import ListingCardContainer from '../ListingCardContainer/ListingCardContainer';
 import ListingDetail from '../ListingDetail/ListingDetail';
 import LoginForm from '../LoginForm/LoginForm';
+import PageNotFound from '../PageNotFound/PageNotFound';
 import UserProfile from '../UserProfile/UserProfile';
 
 class App extends Component {
@@ -188,7 +189,7 @@ class App extends Component {
                   return <ListingDetail handleAddFavoriteClick={this.handleAddFavoriteClick} isListingFavorite={this.isListingFavorite} listing={selectedListing} />
                 }}
               />
-              {/* <Route component={LoginForm} /> */}
+              <Route component={PageNotFound} />
             </Switch>
           </section>
         </main>

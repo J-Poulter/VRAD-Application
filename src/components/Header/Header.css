@@ -25,15 +25,3 @@
   display: flex;
   justify-content: space-between;
 }
-
-.nav-link {
-  color: var(--c-orange);
-  font-size: 1rem;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.nav-link:hover {
-  color: var(--c-gray-dark);
-  text-decoration: underline;
-}

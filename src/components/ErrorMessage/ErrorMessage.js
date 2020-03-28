@@ -4,7 +4,7 @@ import './ErrorMessage.css';
 
 const ErrorMessage = (props) => {
   const { error } = props;
-console.log(error);
+
   return (
     <p className="error">
       Error:
