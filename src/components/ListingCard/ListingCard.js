@@ -1,17 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import './ListingCard.css';
 
 const ListingCard = ({ listing }) => {
   const { area_id, listing_id, name } = listing;
 
   return (
-    <article>
-      <p>{name}</p>
-      <img src={`/images/${listing_id}_a.jpg`} alt="test"/>
-      <Link to={`/areas/${area_id}/listings/${listing_id}`}>
-        <button type="button">View Details</button>
-      </Link>
+    <article className="listing-card">
+      <div className="listing-card-header">
+        <p className="listing-card-title">{name}</p>
+      </div>
+      <div className="listing-card-body">
+        <img
+          className="listing-card-image"
+          src={`/images/${listing_id}_a.jpg`}
+          alt={name}
+        />
+      </div>
+      <div className="listing-card-footer">
+        <Link to={`/areas/${area_id}/listings/${listing_id}`}>
+          <button
+            className="listing-card-button"
+            type="button"
+          >
+            View Details
+          </button>
+        </Link>
+      </div>
     </article>
   )
 }
