@@ -4,3 +4,21 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   margin-top: 20px;
 }
+
+@media screen and (max-width: 1200px) {
+  .area-cards-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .area-cards-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .area-cards-container {
+    grid-template-columns: 1fr;
+  }
+}
