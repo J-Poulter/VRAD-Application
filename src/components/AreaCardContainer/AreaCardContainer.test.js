@@ -46,7 +46,12 @@ describe('AreaCardContainer', () => {
         />
       </BrowserRouter>
     )
- 
+    const cardShortname = getByText('RiNo');
+    const cardName = getByText('(River North)');
+    const cardDescript = getByText('Park Hill features one of the best views');
+    const cardButtons = getAllByText('View Listings');
+    
+
   })
 
   // it('should ')
