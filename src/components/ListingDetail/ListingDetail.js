@@ -9,28 +9,33 @@ const ListingDetail = ({ handleAddFavoriteClick, isListingFavorite, listing }) =
   })
 
   return (
-    <article>
-      <p>{name}</p>
-      <p>Area: {area}</p>
-      <p>{address.street}</p>
-      <p>Denver, CO {address.zip}</p>
-      <p>Beds: {details.beds}</p>
-      <p>Baths: {details.baths}</p>
-      <p>${details.cost_per_night}/night</p>
-      <ul>{features}</ul>
-      <section>
+    <article className="listing-detail-container">
+      <h4 className="listing-detail-title">{name}</h4>
+      <h4 className="listing-detail-cost">${details.cost_per_night}/night</h4>
+      <section className="listing-detail-header">
+        <p>Area: {area}</p>
+        <p>{address.street}</p>
+        <p>Denver, CO {address.zip}</p>
+        <p>Beds: {details.beds}</p>
+        <p>Baths: {details.baths}</p>
+        <p className="listing-detail-details">Features:</p>
+        <ul>{features}</ul>
+      </section>
+      <section className="listing-detail-gallery">
         <img src={`/images/${listing_id}_a.jpg`} alt="listing 1" />
         <img src={`/images/${listing_id}_b.jpg`} alt="listing 2" />
         <img src={`/images/${listing_id}_c.jpg`} alt="listing 3" />
       </section>
-      <button
-        onClick={() => handleAddFavoriteClick(listing)}
-        type="button"
-      >
-        {isListingFavorite(listing_id)
-          ? 'Remove from Favorites'
-          : 'Add to Favorites'}
-      </button>
+      <section className="listing-detail-footer">
+        <button
+          onClick={() => handleAddFavoriteClick(listing)}
+          type="button"
+        >
+          {isListingFavorite(listing_id)
+            ? 'Remove from Favorites'
+            : 'Add to Favorites'}
+        </button>
+      </section>
     </article>
   )
 }

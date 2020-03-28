@@ -20,6 +20,10 @@
   padding: 0;
 }
 
+a {
+  color: var(--c-gray-dark);
+}
+
 .App,
 #root {
   height: 90%;
