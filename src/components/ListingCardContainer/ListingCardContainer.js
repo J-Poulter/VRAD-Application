@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // components ------------------------------
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import ListingCard from '../ListingCard/ListingCard';
+import Spinner from '../Spinner/Spinner';
 
-const ListingCardContainer = ({ listings }) => {
+const ListingCardContainer = ({ error, isLoading, listings }) => {
   const renderedListingCards = listings.map(listing => {
     return <ListingCard
             key={listing.listing_id}
@@ -21,9 +23,13 @@ const ListingCardContainer = ({ listings }) => {
   }
 
   return (
-    <section>
-      {renderContent()}
-    </section>
+    <>
+      {error && <ErrorMessage error={error} />}
+      {isLoading && <Spinner />}
+      <section>
+        {renderContent()}
+      </section>
+    </>
   )
 }
 

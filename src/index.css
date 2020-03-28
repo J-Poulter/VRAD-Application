@@ -57,3 +57,15 @@ button:focus {
 html {
   height: 100%;
 }
+
+.nav-link {
+  color: var(--c-orange);
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: var(--c-gray-dark);
+  text-decoration: underline;
+}
