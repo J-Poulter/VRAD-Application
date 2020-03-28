@@ -11,7 +11,6 @@ import Header from '../Header/Header';
 import ListingCardContainer from '../ListingCardContainer/ListingCardContainer';
 import ListingDetail from '../ListingDetail/ListingDetail';
 import LoginForm from '../LoginForm/LoginForm';
-import Spinner from '../Spinner/Spinner';
 import UserProfile from '../UserProfile/UserProfile';
 
 class App extends Component {
@@ -85,6 +84,7 @@ class App extends Component {
         isLoading: false
       })
     } catch (error) {
+      console.log(error);
       this.setState({
         error
       })
@@ -118,6 +118,7 @@ class App extends Component {
     const {
       areaDetails,
       email,
+      error,
       favorites,
       isAuthenticated,
       isLoading,
@@ -128,12 +129,19 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Header handleLogoutClick={this.handleLogoutClick} isAuthenticated={isAuthenticated} />
+        <Header
+          handleLogoutClick={this.handleLogoutClick}
+          isAuthenticated={isAuthenticated}
+        />
         {isAuthenticated &&
-          <UserProfile email={email} favorites={favorites.length} purpose={purpose} username={username} />}
+          <UserProfile
+            email={email}
+            favorites={favorites.length}
+            purpose={purpose}
+            username={username}
+          />}
         <main className="main">
           <section className="main-content">
-            {isLoading && <Spinner />}
             <Switch>
               <Route
                 path="/"
@@ -146,7 +154,9 @@ class App extends Component {
                 render={() => (
                   <AreaCardContainer
                     areaDetails={areaDetails}
+                    error={error}
                     handleViewListingsClick={this.handleViewListingsClick}
+                    isLoading={isLoading}
                   />
                 )}
               />

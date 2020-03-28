@@ -4,7 +4,7 @@ import './Spinner.css';
 const Spinner = () => (
   <>
     <div className="spinner" />
-    <p className="spinner__text">Retrieving locations...</p>
+    <p className="spinner__text">Loading...</p>
   </>
 );
 

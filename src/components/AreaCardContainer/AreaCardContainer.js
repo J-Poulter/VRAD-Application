@@ -4,8 +4,11 @@ import './AreaCardContainer.css';
 
 // components ------------------------------
 import AreaCard from '../AreaCard/AreaCard';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
+import Spinner from '../Spinner/Spinner';
 
-const AreaCardContainer = ({ areaDetails, handleViewListingsClick }) => {
+
+const AreaCardContainer = ({ areaDetails, error, handleViewListingsClick, isLoading }) => {
   const renderedAreaCards = areaDetails.map(area => (
     <AreaCard
       area={area}
@@ -15,9 +18,13 @@ const AreaCardContainer = ({ areaDetails, handleViewListingsClick }) => {
   ))
 
   return (
-    <section className="area-cards-container">
-      {renderedAreaCards}
-    </section>
+    <>
+      { error && <ErrorMessage error={error} /> }
+      { isLoading && <Spinner /> }
+      <section className="area-cards-container">
+        {renderedAreaCards}
+      </section>
+    </>
   )
 }
 
