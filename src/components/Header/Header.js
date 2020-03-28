@@ -17,7 +17,10 @@ const Header = ({ handleLogoutClick, isAuthenticated }) => {
       </Link>
       {isAuthenticated &&
         <nav className="nav">
-          <NavLink to="/" className="nav-link" onClick={handleLogoutClick} >
+          <NavLink exact to="/areas" className="nav-link">
+            Areas
+          </NavLink>
+          <NavLink exact to="/" className="nav-link" onClick={handleLogoutClick} >
             Log Out
           </NavLink>
         </nav>

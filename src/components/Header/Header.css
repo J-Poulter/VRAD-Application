@@ -30,3 +30,29 @@
   color: var(--c-gray-dark);
   text-decoration: none;
 }
+
+.header .active {
+  color: var(--c-orange);
+  border-bottom: 2px solid var(--c-orange);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav a {
+  margin: 0 0 0 1rem;
+}
+
+.nav-link {
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+}
+
+.nav-link:hover {
+  color: var(--c-orange);
+  border-bottom: 2px solid var(--c-orange);
+}
