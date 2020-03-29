@@ -5,21 +5,30 @@
   flex-direction: column;
   height: 350px;
   padding: 1rem;
-  position: relative;
   width: 100%;
 }
 
+.area-card-header {
+  height: 30%;
+}
+
+.area-card-body {
+  height: 60%;
+}
+
+.area-card-footer {
+  display: flex;
+  height: 10%;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
 .area-card-short-name {
-    margin: 1rem 0rem;
-    text-decoration: underline;
+  margin: 1rem 0rem;
+  text-decoration: underline;
 }
 
 .area-card-name {
-  margin-bottom: 2rem;
   font-style: italic;
-}
-
-.area-button {
-  bottom: 10px;
-  position: absolute;
+  margin-bottom: 2rem;
 }
