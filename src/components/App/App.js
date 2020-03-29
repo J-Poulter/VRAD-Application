@@ -92,7 +92,6 @@ class App extends Component {
     }
   }
 
-
   handleLoginSubmit = ({ username, email, purpose }) => {
     this.setState({
       username,
@@ -117,7 +116,6 @@ class App extends Component {
   render() {
     const {
       areaDetails,
-      email,
       error,
       favorites,
       isAuthenticated,
@@ -135,7 +133,6 @@ class App extends Component {
         />
         {isAuthenticated &&
           <UserProfile
-            email={email}
             favorites={favorites.length}
             purpose={purpose}
             username={username}

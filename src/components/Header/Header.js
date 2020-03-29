@@ -8,7 +8,7 @@ import logo from './logo.png'
 
 const Header = ({ handleLogoutClick, isAuthenticated }) => {
   return(
-    <header className="header">
+    <header className="header" data-testid="header">
       <Link to="/">
         <div className="header-container">
           <img className="logo" src={logo} alt="VRAD travel logo"/>
