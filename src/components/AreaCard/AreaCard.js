@@ -8,19 +8,25 @@ const AreaCard = ({ area, handleViewListingsClick }) => {
 
   return (
     <article className="area-card">
-      <h2 className="area-card-short-name">{shortname}</h2>
-      <h3 className="area-card-name">({name})</h3>
-      <p className="area-card-description">{about}</p>
-      <Link to={`/areas/${id}/listings/`}>
-        <button
-          className="button area-button"
-          id={id}
-          onClick={() => handleViewListingsClick(listings)}
-          type="button"
-        >
-          View Listings
-          </button>
-      </Link>
+      <div className="area-card-header">
+        <h2 className="area-card-short-name">{shortname}</h2>
+        <h3 className="area-card-name">({name})</h3>
+      </div>
+      <div className="area-card-body">
+        <p className="area-card-description">{about}</p>
+      </div>
+      <div className="area-card-footer">
+        <Link to={`/areas/${id}/listings/`}>
+          <button
+            className="button area-button"
+            id={id}
+            onClick={() => handleViewListingsClick(listings)}
+            type="button"
+          >
+            View Listings
+            </button>
+        </Link>
+      </div>
     </article>
   )
 }
