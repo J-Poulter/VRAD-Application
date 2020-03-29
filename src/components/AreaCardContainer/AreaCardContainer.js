@@ -21,7 +21,7 @@ const AreaCardContainer = ({ areaDetails, error, handleViewListingsClick, isLoad
     <>
       { error && <ErrorMessage error={error} /> }
       { isLoading && <Spinner /> }
-      <section className="area-cards-container">
+      <section className="area-cards-container" data-testid="area-card-container">
         {renderedAreaCards}
       </section>
     </>

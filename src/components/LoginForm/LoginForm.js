@@ -51,7 +51,7 @@ class LoginForm extends Component {
     }
 
     return (
-        <section className="login-form-container">
+        <section className="login-form-container" data-testid="login-form">
           <form
             className="login-form"
             onSubmit={this.handleSubmit}

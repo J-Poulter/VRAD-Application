@@ -66,8 +66,6 @@ describe('LoginForm', () => {
     getByLabelText('Purpose:').value = "business";
     fireEvent.change(getByLabelText('Purpose:'), { target: { value: "business" } });
     expect(getByText('Log in to begin your business in Denver')).toBeInTheDocument();
-
-
   })
 
   it('should invoke handleLoginSubmit with correct arguments', () => {

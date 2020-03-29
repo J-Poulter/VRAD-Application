@@ -5,7 +5,7 @@ import './UserProfile.css'
 
 const UserProfile = ({ favorites, purpose, username }) => {
   return (
-    <section className="user-profile">
+    <section className="user-profile" data-testid="user-profile">
       <div>
         <h4>Welcome, {username}!</h4>
         <p>Current travel purpose: {purpose}.</p>
