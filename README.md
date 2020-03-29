@@ -1,68 +1,50 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# What's New
 
-## Available Scripts
+1. [Abstract](#1-abstract)
+2. [Technology](#2-technology)
+3. [Installation](#3-installation)
 
-In the project directory, you can run:
+![vrad](https://user-images.githubusercontent.com/44818815/77839830-a4337180-713d-11ea-8a49-de693cf0b974.gif)
 
-### `npm start`
+### 1. Abstract
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Vacation Rentals Around Denver is a simplified, fake version of a service similar to AirBnB. Users may authenticate via a fake log in form to view listings. There is no actual authentication as it was not within the scope of learning goals for this project. The application performs an initial network request to a nested endpoint and uses an array of endpoints from the initial fetch to perform a series of additional fetches that are passed into a Promise.all() for resolution. Additional data is fetched based upon the user's actions.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+The major learning goal of this project was to utilize the React Router library to build and synchronize routes for the user's actions. To that end, dynamic routes were created following RESTful guidelines to keep the UI synchronized with the URL.
 
-### `npm test`
+Additional concepts explored:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Writing unit tests with Jest and React Testing Library, including tests for some asynchronous functionality
+2. Writing integration tests with Jest and React Testing Library
+3. Utilizing the PropTypes library for type checking of props
+4. Making nested fetch requests
+5. `async/await` and `try/catch` syntax
+6. Conditional rendering of components
+7. Controlled components for forms
+8. Error handling
 
-### `npm run build`
+### 2. Technology
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React
+- React Router
+- PropTypes
+- Jest
+- React testing library
+- Webpack
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### 3. Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Front end:
 
-### `npm run eject`
+1. Fork and/or clone this repo
+2. Change into the directory
+3. Install dependencies via `npm install`
+4. Start webpack-dev-server via `npm run start`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Back end:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+1. Fork and/or clone the following repo https://github.com/turingschool/VRAD-API
+2. Change into the directory
+3. Install dependencies via `npm install`
+4. Start the server via `npm run start`
+5. You will need to have this server running on `localhost:3001`
