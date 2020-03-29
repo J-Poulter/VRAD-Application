@@ -1,31 +1,59 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { cleanup, fireEvent, render, findByDisplayValue } from '@testing-library/react';
-import '@testing-library/jest-dom'
+import '@testing-library/jest-dom/extend-expect';
 import LoginForm from './LoginForm';
 
-describe('LoginForm', () => {
-  let utils;
-  const mockHandleLoginSubmit = jest.fn()
+function renderLoginForm(props) {
+  const mockHandleLoginSubmit = jest.fn();
+  const utils = render(
+    <BrowserRouter>
+      <LoginForm handleLoginSubmit={mockHandleLoginSubmit} {...props} />
+    </BrowserRouter>
+  )
+  return {...utils, mockHandleLoginSubmit}
+}
 
-  beforeEach(() => {
-    utils = render(
-      <LoginForm handleLoginSubmit={mockHandleLoginSubmit} />
-    );
-  })
+describe('LoginForm', () => {
 
   afterEach(cleanup)
 
 
   it('should render the correct content', () => {
-    const { getByLabelText } = utils;
+    const { getByLabelText, getByText } = renderLoginForm()
 
-    expect(getByLabelText('Username:')).toBeTruthy();
-    expect(getByLabelText('Email:')).toBeTruthy();
-    expect(getByLabelText('Purpose:')).toBeTruthy();
+    expect(getByLabelText('Username:')).toBeInTheDocument();
+    expect(getByLabelText('Email:')).toBeInTheDocument();
+    expect(getByLabelText('Purpose:')).toBeInTheDocument();
+    expect(getByText('Log In')).toBeInTheDocument();
+    expect(getByText('Hello, Friend!')).toBeInTheDocument();
+    expect(getByText('Log in to begin your vacation in Denver')).toBeInTheDocument();
   })
 
-  it('should update state on input change', () => {
-    const { findByDisplayValue, findByText, getByLabelText } = utils;
+  it('should disable log in button until all inputs filled', () => {
+    const { getByLabelText, getByText } = renderLoginForm();
+
+    expect(getByText('Log In')).toHaveAttribute('disabled');
+
+    fireEvent.change(getByLabelText('Username:'), {
+      target: { value: 'mockUsername' }
+    });
+    expect(getByLabelText('Username:').value).toBe('mockUsername');
+
+    fireEvent.change(getByLabelText('Email:'), {
+      target: { value: 'mockEmail' }
+    });
+    expect(getByLabelText('Email:').value).toBe('mockEmail');
+
+    getByLabelText('Purpose:').value = "business";
+    fireEvent.change(getByLabelText('Purpose:'), { target: { value: "business" } });
+    expect(getByLabelText('Purpose:').value).toBe('business');
+
+    expect(getByText('Log In')).not.toHaveAttribute('disabled');
+  })
+
+  it('should invoke handleLoginSubmit with correct arguments', () => {
+    const { getByLabelText, getByText, mockHandleLoginSubmit } = renderLoginForm();
     expect(getByLabelText('Username:').value).toBe('');
 
     fireEvent.change(getByLabelText('Username:'), {
@@ -40,29 +68,15 @@ describe('LoginForm', () => {
 
     getByLabelText('Purpose:').value = "business";
     fireEvent.change(getByLabelText('Purpose:'), { target: { value: "business" } });
-
     expect(getByLabelText('Purpose:').value).toBe('business');
-  })
 
-  it('should invoke handleLoginSubmit', () => {
-    const { getByLabelText, getByText } = utils;
-    fireEvent.change(getByLabelText('Username:'), {
-      target: { value: 'mockUsername' }
-    });
+    fireEvent.click(getByText('Log In'));
 
-    fireEvent.change(getByLabelText('Email:'), {
-      target: { value: 'mockEmail' }
-    });
-
-    getByLabelText('Purpose:').value = "other";
-    fireEvent.change(getByLabelText('Purpose:'), { target: { value: "other" } });
-
-  fireEvent.click(getByText('Log In'));
-
-  expect(mockHandleLoginSubmit).toHaveBeenCalledWith({
+    expect(mockHandleLoginSubmit).toHaveBeenCalledTimes(1);
+    expect(mockHandleLoginSubmit).toHaveBeenCalledWith({
       username: 'mockUsername',
       email: 'mockEmail',
-      purpose: 'other',
+      purpose: 'business',
     })
   })
 })

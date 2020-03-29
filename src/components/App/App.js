@@ -92,7 +92,6 @@ class App extends Component {
     }
   }
 
-
   handleLoginSubmit = ({ username, email, purpose }) => {
     this.setState({
       username,
