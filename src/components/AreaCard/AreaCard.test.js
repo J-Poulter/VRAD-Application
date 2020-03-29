@@ -1,6 +1,6 @@
 import React from 'react';
 import { cleanup, fireEvent, render } from '@testing-library/react';
-import '@testing-library/jest-dom';
+import '@testing-library/jest-dom/extend-expect';
 import AreaCard from './AreaCard';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -35,7 +35,16 @@ describe('AreaCard', () => {
   afterEach(cleanup)
 
   it('should render the correct content', () => {
-    
+    const { getByText } = areaCard;
+    const cardShortname = getByText('RiNo');
+    const cardName = getByText('(River North)');
+    const cardDescript = getByText('RiNo is a burgeoning area');
+    const cardButton = getByText('View Listings');
+
+    expect(cardShortname).toBeInTheDocument();
+    expect(cardName).toBeInTheDocument();
+    expect(cardDescript).toBeInTheDocument();
+    expect(cardButton).toBeInTheDocument();
   })
 
   it('should invoke handleViewListingsClick on click', () => {
