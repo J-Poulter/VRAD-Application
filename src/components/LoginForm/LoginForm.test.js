@@ -52,6 +52,24 @@ describe('LoginForm', () => {
     expect(getByText('Log In')).not.toHaveAttribute('disabled');
   })
 
+  it('should update the welcome message with the username and purpose', () => {
+    const { getByLabelText, getByText } = renderLoginForm();
+
+    expect(getByText('Hello, Friend!')).toBeInTheDocument();
+    expect(getByText('Log in to begin your vacation in Denver')).toBeInTheDocument();
+
+    fireEvent.change(getByLabelText('Username:'), {
+      target: { value: 'mockUsername' }
+    });
+    expect(getByText('Hello, mockUsername!')).toBeInTheDocument();
+
+    getByLabelText('Purpose:').value = "business";
+    fireEvent.change(getByLabelText('Purpose:'), { target: { value: "business" } });
+    expect(getByText('Log in to begin your business in Denver')).toBeInTheDocument();
+
+
+  })
+
   it('should invoke handleLoginSubmit with correct arguments', () => {
     const { getByLabelText, getByText, mockHandleLoginSubmit } = renderLoginForm();
     expect(getByLabelText('Username:').value).toBe('');
