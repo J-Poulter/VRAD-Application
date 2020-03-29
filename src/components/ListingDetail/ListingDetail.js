@@ -44,7 +44,7 @@ ListingDetail.propTypes = {
   listing: PropTypes.shape({
     address: PropTypes.shape({
       street: PropTypes.string,
-      zip: PropTypes.number,
+      zip: PropTypes.string,
     }),
     area: PropTypes.string,
     details: PropTypes.shape({

@@ -13,8 +13,6 @@ function renderSpinner(props) {
   return { ...utils }
 }
 
-const mockError = Error('mockMessage')
-
 it('should render the correct content', () => {
   const { getByText } = renderSpinner();
 
