@@ -11,13 +11,13 @@
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 900px) {
   .area-cards-container {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 600px) {
   .area-cards-container {
     grid-template-columns: 1fr;
   }
