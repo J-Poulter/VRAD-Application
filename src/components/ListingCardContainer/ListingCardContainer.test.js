@@ -61,7 +61,7 @@ describe('ListingCard', () => {
   afterEach(cleanup)
 
   it('should render the correct content', () => {
-    const { debug, getAllByText, getByAltText, getByText } = render(
+    const { getAllByText, getByAltText, getByText } = render(
       <BrowserRouter>
         <ListingCardContainer 
           error={null}
@@ -78,5 +78,19 @@ describe('ListingCard', () => {
     expect(listingCardTitle).toBeInTheDocument();
     expect(listingCardImage).toBeInTheDocument();
     expect(listingCardButtons).toHaveLength(2);
+  })
+
+  it('should be able to inform the user if there are no listings available', () => {
+    const { getByText } = render(
+      <BrowserRouter>
+        <ListingCardContainer
+          error={null}
+          listings={[]}
+          isLoading={false}
+        />
+      </BrowserRouter>
+    );
+    const emptyListingContainer = getByText('No listings!');
+    expect(emptyListingContainer).toBeInTheDocument;
   })
 })
