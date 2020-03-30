@@ -13,7 +13,7 @@ describe('ListingCard', () => {
       "name": "Hip RiNo Party Spot",
       "address": {
         "street": "2250 Lawrence St",
-        "zip": "80205"
+        "zip": 80205
       },
       "details": {
         "neighborhood_id": 5124122,
@@ -37,7 +37,7 @@ describe('ListingCard', () => {
       "name": "Lowkey Industrial Chic",
       "address": {
         "street": "2441 Broadway Ave",
-        "zip": "80205"
+        "zip": 80205
       },
       "details": {
         "neighborhood_id": 5124122,
@@ -70,10 +70,13 @@ describe('ListingCard', () => {
         />
       </BrowserRouter>
     );
-      debug()
     
     const listingCardTitle = getByText('Hip RiNo Party Spot');
     const listingCardImage = getByAltText('Hip RiNo Party Spot');
     const listingCardButtons = getAllByText('View Details');
+
+    expect(listingCardTitle).toBeInTheDocument();
+    expect(listingCardImage).toBeInTheDocument();
+    expect(listingCardButtons).toHaveLength(2);
   })
 })
