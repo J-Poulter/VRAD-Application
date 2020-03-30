@@ -62,6 +62,7 @@ class App extends Component {
       this.setState({
         favorites: [...favorites, listing]
       })
+      localStorage.setItem("favorites", JSON.stringify(favorites.concat(listing)))
     }
   }
 
