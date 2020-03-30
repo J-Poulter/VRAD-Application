@@ -57,6 +57,7 @@ class App extends Component {
           return favorite.listing_id !== listing.listing_id;
         })
       })
+      localStorage.setItem("favorites", JSON.stringify(favorites))
     } else {
       this.setState({
         favorites: [...favorites, listing]
@@ -95,7 +96,8 @@ class App extends Component {
       username,
       email,
       purpose,
-      isAuthenticated: true
+      isAuthenticated: true,
+      favorites: JSON.parse(localStorage.getItem("favorites")) || []
     })
   }
 
