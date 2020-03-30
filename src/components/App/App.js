@@ -52,17 +52,18 @@ class App extends Component {
     const alreadyFavorite = this.isListingFavorite(listing.listing_id);
 
     if(alreadyFavorite) {
-      this.setState({
-        favorites: favorites.filter(favorite => {
-          return favorite.listing_id !== listing.listing_id;
-        })
+      const filteredFavorites = favorites.filter(favorite => {
+        return favorite.listing_id !== listing.listing_id;
       })
-      localStorage.setItem("favorites", JSON.stringify(favorites))
+      this.setState({
+        favorites: filteredFavorites
+      })
+      localStorage.setItem("favorites", JSON.stringify(filteredFavorites))
     } else {
       this.setState({
         favorites: [...favorites, listing]
       })
-      localStorage.setItem("favorites", JSON.stringify(favorites.concat(listing)))
+      localStorage.setItem("favorites", JSON.stringify([...favorites, listing]))
     }
   }
 
