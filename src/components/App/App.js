@@ -49,9 +49,7 @@ class App extends Component {
 
   handleAddFavoriteClick = (listing) => {
     const { favorites } = this.state;
-    const alreadyFavorite = favorites.find(favorite => {
-      return favorite.listing_id === listing.listing_id;
-    })
+    const alreadyFavorite = this.isListingFavorite(listing.listing_id);
 
     if(alreadyFavorite) {
       this.setState({
@@ -68,7 +66,7 @@ class App extends Component {
 
   isListingFavorite = (listing_id) => {
     const { favorites } = this.state;
-    return !!favorites.find(favorite => {
+    return favorites.some(favorite => {
       return favorite.listing_id === listing_id;
     })
   }

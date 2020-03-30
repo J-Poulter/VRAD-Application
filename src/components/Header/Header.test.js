@@ -4,17 +4,17 @@ import { cleanup, fireEvent, render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import Header from './Header';
 
-describe('Header', () => {
+function renderHeader(props) {
+  const mockHandleLogoutClick = jest.fn();
+  const utils = render(
+    <BrowserRouter>
+      <Header handleLogoutClick={mockHandleLogoutClick} {...props} />;
+    </BrowserRouter>
+  )
+  return {...utils, mockHandleLogoutClick}
+}
 
-  function renderHeader(props) {
-    const mockHandleLogoutClick = jest.fn();
-    const utils = render(
-      <BrowserRouter>
-        <Header handleLogoutClick={mockHandleLogoutClick} {...props} />;
-      </BrowserRouter>
-    )
-    return {...utils, mockHandleLogoutClick}
-  }
+describe('Header', () => {
 
   afterEach(cleanup)
 
@@ -54,11 +54,3 @@ describe('Header', () => {
     expect(queryByText('Log Out')).not.toBeInTheDocument();
   })
 })
-
-
-
-
-// when i am authenticated and click logout, i am not longer authenticated
-// i call handleLogOutClick
-
-//the view changes after logging out
