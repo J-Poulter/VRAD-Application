@@ -62,6 +62,18 @@ describe('ListingCard', () => {
 
   it('should render the correct content', () => {
     const { debug, getAllByText, getByAltText, getByText } = render(
-
+      <BrowserRouter>
+        <ListingCardContainer 
+          error={null}
+          listings={mockListings}
+          isLoading={false}
+        />
+      </BrowserRouter>
+    );
+      debug()
+    
+    const listingCardTitle = getByText('Hip RiNo Party Spot');
+    const listingCardImage = getByAltText('Hip RiNo Party Spot');
+    const listingCardButtons = getAllByText('View Details');
   })
 })
