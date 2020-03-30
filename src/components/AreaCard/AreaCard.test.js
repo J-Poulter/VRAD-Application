@@ -48,11 +48,19 @@ describe('AreaCard', () => {
   })
 
   it('should invoke handleViewListingsClick on click', () => {
-    const { getByText } = areaCard
-    const viewListingsButton = getByText('View Listings')
-    fireEvent.click(viewListingsButton)
+    const { getByText } = areaCard;
+    const viewListingsButton = getByText('View Listings');
+    fireEvent.click(viewListingsButton);
 
     expect(mockHandleViewListingsClick).toHaveBeenCalled();
     expect(mockHandleViewListingsClick).toHaveBeenCalledWith(["/api/v1/listings/3"]);
+  })
+
+  it('should change the URL accordingly after clicking View Listings Button', () => {
+    const { getByText } = areaCard;
+    const viewListingsButton = getByText('View Listings');
+    fireEvent.click(viewListingsButton);
+
+    expect(location.pathname).toBe('/areas/590/listings/');
   })
 })

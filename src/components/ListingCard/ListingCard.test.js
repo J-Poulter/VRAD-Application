@@ -55,8 +55,8 @@ describe('ListingCard', () => {
     expect(listingCardButton).toBeInTheDocument();
   })
 
-  it('should change the URL after clicking View Listings Button', () => {
-    const { debug, getByAltText, getByText } = listingCard;
+  it('should change the URL accordingly after clicking View Details Button', () => {
+    const { getByText } = listingCard;
     const listingCardButton = getByText('View Details');
     fireEvent.click(listingCardButton);
 
