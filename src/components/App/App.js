@@ -178,7 +178,7 @@ class App extends Component {
                 path="/favorites"
                 exact
                 render={() => {
-                  return <ListingCardContainer listings={favorites}/>
+                  return <ListingCardContainer listings={favorites} />
                 }}
               />
               <Route
