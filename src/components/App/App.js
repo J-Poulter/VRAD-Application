@@ -112,6 +112,8 @@ class App extends Component {
   findListing = (listingId) => {
     return this.state.listings.find(listing => {
       return listing.listing_id === parseInt(listingId)
+    }) || this.state.favorites.find(listing => {
+      return listing.listing_id === parseInt(listingId)
     })
   }
 
