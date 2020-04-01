@@ -1,7 +1,6 @@
 import React from 'react';
 import { cleanup, render, getByLabelText } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import ListingCard from '../ListingCard/ListingCard';
 import { BrowserRouter } from 'react-router-dom';
 import ListingCardContainer from './ListingCardContainer';
 
@@ -63,14 +62,14 @@ describe('ListingCard', () => {
   it('should render the correct content', () => {
     const { getAllByText, getByAltText, getByText } = render(
       <BrowserRouter>
-        <ListingCardContainer 
+        <ListingCardContainer
           error={null}
           listings={mockListings}
           isLoading={false}
         />
       </BrowserRouter>
     );
-    
+
     const listingCardTitle = getByText('Hip RiNo Party Spot');
     const listingCardImage = getByAltText('Hip RiNo Party Spot');
     const listingCardButtons = getAllByText('View Details');
