@@ -16,11 +16,10 @@ function renderLoginForm(props) {
 
 describe('LoginForm', () => {
 
-  afterEach(cleanup)
-
+  afterEach(cleanup);
 
   it('should render the correct content', () => {
-    const { getByLabelText, getByText } = renderLoginForm()
+    const { getByLabelText, getByText } = renderLoginForm();
 
     expect(getByLabelText('Username:')).toBeInTheDocument();
     expect(getByLabelText('Email:')).toBeInTheDocument();
@@ -50,7 +49,7 @@ describe('LoginForm', () => {
     expect(getByLabelText('Purpose:').value).toBe('business');
 
     expect(getByText('Log In')).not.toHaveAttribute('disabled');
-  })
+  });
 
   it('should update the welcome message with the username and purpose', () => {
     const { getByLabelText, getByText } = renderLoginForm();
@@ -66,7 +65,7 @@ describe('LoginForm', () => {
     getByLabelText('Purpose:').value = "business";
     fireEvent.change(getByLabelText('Purpose:'), { target: { value: "business" } });
     expect(getByText('Log in to begin your business in Denver')).toBeInTheDocument();
-  })
+  });
 
   it('should invoke handleLoginSubmit with correct arguments', () => {
     const { getByLabelText, getByText, mockHandleLoginSubmit } = renderLoginForm();
@@ -93,6 +92,6 @@ describe('LoginForm', () => {
       username: 'mockUsername',
       email: 'mockEmail',
       purpose: 'business',
-    })
-  })
-})
+    });
+  });
+});

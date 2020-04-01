@@ -1,18 +1,18 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { cleanup, fireEvent, render, waitFor, getByLabelText, waitForElementToBeRemoved } from '@testing-library/react';
+import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
+
 import App from './App';
 import { getAreas, getAreaDetails } from '../../apiCalls/apiCalls';
-import LoginForm from '../LoginForm/LoginForm';
 
 jest.mock('../../apiCalls/apiCalls')
 
 describe('App', () => {
   let utils;
+
   beforeEach(() => {
-    getAreas.mockResolvedValueOnce(
-      {
+    getAreas.mockResolvedValueOnce({
         areas: [
           {
             area: "RiNo",
@@ -23,10 +23,8 @@ describe('App', () => {
             details: '/api/v1/areas/751'
           }
         ]
-      }
-    )
-    getAreaDetails.mockResolvedValueOnce(
-      [
+      })
+    getAreaDetails.mockResolvedValueOnce([
         {
           "shortname": "RiNo",
           "id": 590,
@@ -58,14 +56,14 @@ describe('App', () => {
             '/api/v1/listings/21',
           ]
         }
-      ]
-    )
+      ])
+
     utils = render(
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    )   
-  })
+    )
+  });
 
   afterEach(cleanup)
 
@@ -74,23 +72,25 @@ describe('App', () => {
 
     expect(getByTestId('header')).toBeInTheDocument();
     expect(getByTestId('login-form')).toBeInTheDocument();
-  })
+  });
 
   it('should render UserProfile, AreaCardContainer, AreaCard, once logged in', async () => {
-    
-    const { debug, getByText, getByLabelText, getByTestId, queryByTestId } = utils;
+    const { getByText, getByLabelText, getByTestId, queryByTestId } = utils;
 
     fireEvent.change(getByLabelText('Username:'), {
       target: {value: 'chucknorris'}
-    })
-    fireEvent.change(getByLabelText('Email:'), {
-      target: {value: 'chucknorris@norris'}
-    })
-    getByLabelText('Purpose:').value = 'business'
-    fireEvent.click(getByText('Log In'))
-    expect(queryByTestId('login-form')).not.toBeInTheDocument()
+    });
 
-    // AreaCard (present once fetch completes)
+    fireEvent.change(getByLabelText('Email:'), {
+      target: {value: 'chucknorris@norris.com'}
+    });
+
+    getByLabelText('Purpose:').value = 'business';
+
+    fireEvent.click(getByText('Log In'));
+
+    expect(queryByTestId('login-form')).not.toBeInTheDocument();
+
     await waitFor(() => {
       expect(getByTestId('user-profile')).toBeInTheDocument();
       expect(getByTestId('area-card-container')).toBeInTheDocument();
@@ -99,10 +99,9 @@ describe('App', () => {
       expect(getByText('Log Out')).toBeInTheDocument();
       expect(getByText('RiNo')).toBeInTheDocument();
       expect(getByText('Park Hill')).toBeInTheDocument();
-    })
+    });
+
     fireEvent.click(getByText('Log Out'));
     expect(getByTestId('login-form')).toBeInTheDocument();
-  })
-})
-
-
+  });
+});
